@@ -723,6 +723,7 @@ lvv2_bit
 lvv3
 lvv3_bit
 main
+msninicial
 mul_16x16_s
 mul_16x16_u
 mul_32x32_fp
@@ -1282,6 +1283,7 @@ toutps2
 toutps2_bit
 toutps3
 toutps3_bit
+tracos
 trisa
 trisa0
 trisa0_bit
