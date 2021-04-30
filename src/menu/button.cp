@@ -11,6 +11,11 @@ extern sfr sbit TRIS_buttonEsquerda;
 extern sfr sbit TRIS_buttonDireita;
 extern sfr sbit TRIS_buttonOK;
 
+void testButton(void);
+void configButton(void);
+void configTMR0(void);
+void resetTMR0(void);
+#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 union flagButton{
  char flagsJuntas;
  struct{
@@ -21,11 +26,7 @@ union flagButton{
  };
 }flagsButton;
 
-void testButton(void);
-void configButton(void);
-void configTMR0(void);
-void resetTMR0(void);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
+
 void testButton(void){
  if(!flagsButton.flagVoltar && buttonVoltar) flagsButton.flagVoltar = 1;
  if(!flagsButton.flagEsquerda && buttonEsquerda) flagsButton.flagEsquerda = 1;

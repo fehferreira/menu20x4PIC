@@ -11,16 +11,6 @@ extern sfr sbit TRIS_buttonEsquerda;
 extern sfr sbit TRIS_buttonDireita;
 extern sfr sbit TRIS_buttonOK;
 
-union flagButton{
- char flagsJuntas;
- struct{
- char flagVoltar: 1;
- char flagEsquerda: 1;
- char flagDireita: 1;
- char flagOk: 1;
- };
-}flagsButton;
-
 void testButton(void);
 void configButton(void);
 void configTMR0(void);
