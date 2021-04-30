@@ -21,5 +21,7 @@ union flagButton{
 }flagsButton;
 
 void testButton(void);
+void configButton(char *btnVoltar, char *btnEsquerda, char *btnDireita, char *btnOK);
 void configTMR0(void);
+void resetTMR0(void);
 

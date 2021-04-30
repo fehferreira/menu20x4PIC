@@ -39,5 +39,16 @@ void configTMR0(void){
     if(!IPEN_bit) IPEN_bit = 1;
     
     TMR0IE_bit	 = 1;
+    TMR0IF_bit   = 0;
+}
+
+void configButton(char *btnVoltar, char *btnEsquerda, char *btnDireita, char *btnOK){
+
+}
+
+void resetTMR0(void){
+    TMR0H	 = 0xB1;
+    TMR0L	 = 0xE0;
+    TMR0IF_bit   = 0;
 }
 

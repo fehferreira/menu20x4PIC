@@ -15,6 +15,10 @@ union flagButton{
  char flagOk: 1;
  };
 }flagsButton;
+
+void testButton(void);
+void configTMR0(void);
+void resetTMR0(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 void testButton(void){
  if(!flagsButton.flagVoltar && buttonVoltar) flagsButton.flagVoltar = 1;
@@ -37,5 +41,22 @@ void testButton(void){
  if(flagsButton.flagOk && !buttonOK){
  flagsButton.flagOk = 0;
  }
+}
 
+void configTMR0(void){
+ T0CON = 0x88;
+
+ TMR0H = 0xB1;
+ TMR0L = 0xE0;
+ if(!GIEL_bit)GIEL_bit = 1;
+ if(!IPEN_bit) IPEN_bit = 1;
+
+ TMR0IE_bit = 1;
+ TMR0IF_bit = 0;
+}
+
+void resetTMR0(void){
+ TMR0H = 0xB1;
+ TMR0L = 0xE0;
+ TMR0IF_bit = 0;
 }

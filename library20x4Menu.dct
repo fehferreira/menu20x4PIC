@@ -243,6 +243,7 @@ cmip
 cmip_bit
 comfrem
 compare_double
+configtmr0
 crc16ee
 crc16ee_bit
 crc16ef
@@ -452,10 +453,16 @@ ferr
 ferr_bit
 fixsign32
 flagdireita
+flagdireita
+flagesquerda
 flagesquerda
 flagok
+flagok
+flagsbutton
 flagsbutton
 flagsjuntas
+flagsjuntas
+flagvoltar
 flagvoltar
 flts
 flts_bit
@@ -595,6 +602,7 @@ intedg1
 intedg1_bit
 intedg2
 intedg2_bit
+interrupt_low
 intsrc
 intsrc_bit
 iofs
@@ -1029,6 +1037,7 @@ re3_bit
 read_write
 read_write_bit
 res032
+resettmr0
 resume_
 resume__bit
 ri

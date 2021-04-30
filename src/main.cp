@@ -1,5 +1,25 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
-#line 8 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
+#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+extern char *buttonVoltar;
+extern char *buttonEsquerda;
+extern char *buttonDireita;
+extern char *buttonOK;
+
+union flagButton{
+ char flagsJuntas;
+ struct{
+ char flagVoltar: 1;
+ char flagEsquerda: 1;
+ char flagDireita: 1;
+ char flagOk: 1;
+ };
+}flagsButton;
+
+void testButton(void);
+void configTMR0(void);
+void resetTMR0(void);
+#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
 sbit LCD_D4 at RD2_bit;
@@ -23,6 +43,7 @@ void InitializeSystem(void){
  TRISB = 0b00000000;
 
  Lcd_Init();
+ configTMR0();
 
 }
 
@@ -36,5 +57,12 @@ void main(void){
 
  while(1){
 
+ }
+}
+
+void interrupt_low(void){
+ if(TMR0IF_bit){
+ resetTMR0();
+ testButton();
  }
 }
