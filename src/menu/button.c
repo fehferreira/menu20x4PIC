@@ -28,5 +28,16 @@ void testButton(void){
     if(flagsButton.flagOk          && !buttonOK){
         flagsButton.flagOk = 0;
     }
-    
 }
+
+void configTMR0(void){
+    T0CON	 = 0x88;  //config TMR0 interrupt by 4ms
+    
+    TMR0H	 = 0xB1;
+    TMR0L	 = 0xE0;
+    if(!GIEL_bit)GIEL_bit = 1;
+    if(!IPEN_bit) IPEN_bit = 1;
+    
+    TMR0IE_bit	 = 1;
+}
+
