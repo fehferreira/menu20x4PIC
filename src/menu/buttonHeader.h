@@ -19,3 +19,7 @@ union flagButton{
         char flagOk: 1;
     };
 }flagsButton;
+
+void testButton(void);
+void configTMR0(void);
+

@@ -5,6 +5,8 @@
 *   MAIN FILE
 */
 
+#include "menu/buttonHeader.h"
+
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
 sbit LCD_D4 at RD2_bit;
@@ -28,6 +30,7 @@ void InitializeSystem(void){
     TRISB = 0b00000000;
     
     Lcd_Init();
+    configTMR0();
 
 }
 
@@ -41,5 +44,12 @@ void main(void){
 
     while(1){
     
+    }
+}
+
+void interrupt_low(void){
+    if(TMR0IF_bit){
+        resetTMR0();
+        testButton();
     }
 }
