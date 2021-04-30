@@ -6,3 +6,9 @@
 */
 
 #include "buttonHeader.h"
+
+void testButton(void){
+    if(flagsButton.flagVoltar){
+        flagsButton.flagVoltar = 0;
+    }
+}

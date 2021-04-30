@@ -451,6 +451,12 @@ fast
 ferr
 ferr_bit
 fixsign32
+flagdireita
+flagesquerda
+flagok
+flagsbutton
+flagsjuntas
+flagvoltar
 flts
 flts_bit
 free
@@ -1227,6 +1233,7 @@ tblptr
 tblptrh
 tblptrl
 tblptru
+testbutton
 tmr0h
 tmr0ie
 tmr0ie_bit

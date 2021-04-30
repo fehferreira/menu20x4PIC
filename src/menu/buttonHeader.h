@@ -9,3 +9,13 @@ extern char *buttonVoltar;
 extern char *buttonEsquerda;
 extern char *buttonDireita;
 extern char *buttonOK;
+
+union flagButton{
+    char flagsJuntas;
+    struct{
+        char flagVoltar: 1;
+        char flagEsquerda: 1;
+        char flagDireita: 1;
+        char flagOk: 1;
+    };
+}flagsButton;
