@@ -17,7 +17,8 @@ Value=0
 Value=
 [FILES]
 File0=.\src\main.c
-Count=1
+File1=.\src\menu\button.c
+Count=2
 [BINARIES]
 Count=0
 [IMAGES]
@@ -25,7 +26,9 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 File0=.\src\main.c
-Count=1
+File1=.\src\menu\button.c
+File2=.\src\menu\buttonHeader.h
+Count=3
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -34,11 +37,13 @@ Count=0
 Count=0
 [SEARCH_PATH]
 Path0=.\src\
-Count=1
+Path1=.\src\menu\
+Count=2
 [HEADER_PATH]
 Count=0
 [HEADERS]
-Count=0
+File0=.\src\menu\buttonHeader.h
+Count=1
 [PLDS]
 Count=0
 [Useses]
@@ -52,7 +57,8 @@ IVT_BASE=00000008
 0=library20x4Menu.mcppi
 1=Sources
 2=src
-Count=3
+4=menu
+Count=4
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries

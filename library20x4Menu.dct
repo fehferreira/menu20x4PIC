@@ -149,6 +149,10 @@ btsee
 btsee_bit
 btsef
 btsef_bit
+buttondireita
+buttonesquerda
+buttonok
+buttonvoltar
 byte2double
 c
 c_bit
@@ -243,6 +247,8 @@ cmip
 cmip_bit
 comfrem
 compare_double
+configbutton
+configtmr0
 crc16ee
 crc16ee_bit
 crc16ef
@@ -451,6 +457,12 @@ fast
 ferr
 ferr_bit
 fixsign32
+flagdireita
+flagesquerda
+flagok
+flagsbutton
+flagsjuntas
+flagvoltar
 flts
 flts_bit
 free
@@ -589,6 +601,7 @@ intedg1
 intedg1_bit
 intedg2
 intedg2_bit
+interrupt_low
 intsrc
 intsrc_bit
 iofs
@@ -1023,6 +1036,7 @@ re3_bit
 read_write
 read_write_bit
 res032
+resettmr0
 resume_
 resume__bit
 ri
@@ -1227,6 +1241,7 @@ tblptr
 tblptrh
 tblptrl
 tblptru
+testbutton
 tmr0h
 tmr0ie
 tmr0ie_bit
@@ -1284,6 +1299,10 @@ toutps2_bit
 toutps3
 toutps3_bit
 tracos
+tris_buttondireita
+tris_buttonesquerda
+tris_buttonok
+tris_buttonvoltar
 trisa
 trisa0
 trisa0_bit
