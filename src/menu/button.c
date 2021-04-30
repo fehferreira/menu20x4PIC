@@ -7,6 +7,16 @@
 
 #include "buttonHeader.h"
 
+union flagButton{
+    char flagsJuntas;
+    struct{
+        char flagVoltar: 1;
+        char flagEsquerda: 1;
+        char flagDireita: 1;
+        char flagOk: 1;
+    };
+}flagsButton;
+
 void testButton(void){
     if(!flagsButton.flagVoltar      && buttonVoltar)   flagsButton.flagVoltar = 1;
     if(!flagsButton.flagEsquerda    && buttonEsquerda) flagsButton.flagEsquerda = 1;

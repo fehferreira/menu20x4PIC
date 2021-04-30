@@ -3,7 +3,12 @@ hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]
 diagnostics: 0	122	Compilation Started	buttonheader.h
 diagnostics: 65	123	Compiled Successfully	main.c
 diagnostics: 0	122	Compilation Started	buttonheader.h
-diagnostics: 56	123	Compiled Successfully	button.c
-diagnostics: 0	127	All files Compiled in 203 ms	 
-error: 26	355	Redefinition of 'flagsButton [button.c] '. 'flagsButton' already defined in 'main.c'	button.c
-error: 0	102	Finished (with errors): 30 abr 2021, 16:44:33	library20x4Menu.mcppi
+diagnostics: 67	123	Compiled Successfully	button.c
+diagnostics: 0	127	All files Compiled in 187 ms	 
+hint: 0	1144	Used RAM (bytes): 53 (3%)  Free RAM (bytes): 1974 (97%)	Used RAM (bytes): 53 (3%)  Free RAM (bytes): 1974 (97%)
+hint: 0	1144	Used ROM (bytes): 808 (2%)  Free ROM (bytes): 31960 (98%)	Used ROM (bytes): 808 (2%)  Free ROM (bytes): 31960 (98%)
+diagnostics: 0	125	Project Linked Successfully	library20x4Menu.mcppi
+hint: 0	1004	COFF file successfully generated	COFF file successfully generated
+diagnostics: 0	128	Linked in 563 ms	 
+diagnostics: 0	129	Project 'library20x4Menu.mcppi' completed: 907 ms	 
+diagnostics: 0	103	Finished successfully: 30 abr 2021, 16:59:32	library20x4Menu.mcppi

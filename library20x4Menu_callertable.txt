@@ -4,6 +4,8 @@ main
 		Lcd_Init
 			Delay_5500us
 			Delay_1us
+		configTMR0
+		configButton
 	Lcd_Out
 		Lcd_Cmd
 			Delay_1us
@@ -14,3 +16,6 @@ main
 				Delay_1us
 				Delay_5500us
 				Delay_50us
+interrupt_low
+	resetTMR0
+	testButton
