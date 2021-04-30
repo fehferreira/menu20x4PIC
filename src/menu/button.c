@@ -8,7 +8,25 @@
 #include "buttonHeader.h"
 
 void testButton(void){
-    if(flagsButton.flagVoltar){
+    if(!flagsButton.flagVoltar      && buttonVoltar)   flagsButton.flagVoltar = 1;
+    if(!flagsButton.flagEsquerda    && buttonEsquerda) flagsButton.flagEsquerda = 1;
+    if(!flagsButton.flagDireita     && buttonDireita)  flagsButton.flagDireita = 1;
+    if(!flagsButton.flagOk          && buttonOK)       flagsButton.flagOk = 1;
+    
+    if(flagsButton.flagVoltar      && !buttonVoltar){
         flagsButton.flagVoltar = 0;
     }
+    
+    if(flagsButton.flagEsquerda    && !buttonEsquerda){
+        flagsButton.flagEsquerda = 0;
+    }
+    
+    if(flagsButton.flagDireita     && !buttonDireita){
+        flagsButton.flagDireita = 0;
+    }
+    
+    if(flagsButton.flagOk          && !buttonOK){
+        flagsButton.flagOk = 0;
+    }
+    
 }
