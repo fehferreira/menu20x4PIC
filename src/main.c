@@ -31,10 +31,6 @@ sbit TRIS_buttonEsquerda    at TRISB5_bit;
 sbit TRIS_buttonDireita     at TRISB6_bit;
 sbit TRIS_buttonOK          at TRISB7_bit;
 
-
-char msnInicial [21] = "---- JC MODULOS ----";
-char tracos [21]     = "--------------------";
-
 void InitializeSystem(void){
     TRISA = 0b00000000;
     TRISB = 0b00000000;
@@ -46,11 +42,6 @@ void InitializeSystem(void){
 
 void main(void){
     InitializeSystem();
-    
-    Lcd_Out(1,1,tracos);
-    Lcd_Out(2,1,msnInicial);
-    Lcd_Out(3,1,msnInicial);
-    Lcd_Out(4,1,tracos);
 
     while(1){
     
