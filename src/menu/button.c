@@ -30,6 +30,13 @@ void testButton(void){
     }
 }
 
+void configButton(void){
+    TRIS_buttonVoltar = 1;
+    TRIS_buttonEsquerda = 1;
+    TRIS_buttonDireita = 1;
+    TRIS_buttonOK = 1;
+}
+
 void configTMR0(void){
     T0CON	 = 0x88;  //config TMR0 interrupt by 4ms
     
@@ -42,13 +49,8 @@ void configTMR0(void){
     TMR0IF_bit   = 0;
 }
 
-void configButton(char *btnVoltar, char *btnEsquerda, char *btnDireita, char *btnOK){
-
-}
-
 void resetTMR0(void){
     TMR0H	 = 0xB1;
     TMR0L	 = 0xE0;
     TMR0IF_bit   = 0;
 }
-

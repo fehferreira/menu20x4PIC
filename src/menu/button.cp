@@ -1,10 +1,15 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 #line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-extern char *buttonVoltar;
-extern char *buttonEsquerda;
-extern char *buttonDireita;
-extern char *buttonOK;
+extern sfr sbit buttonVoltar;
+extern sfr sbit buttonEsquerda;
+extern sfr sbit buttonDireita;
+extern sfr sbit buttonOK;
+
+extern sfr sbit TRIS_buttonVoltar;
+extern sfr sbit TRIS_buttonEsquerda;
+extern sfr sbit TRIS_buttonDireita;
+extern sfr sbit TRIS_buttonOK;
 
 union flagButton{
  char flagsJuntas;
@@ -17,6 +22,7 @@ union flagButton{
 }flagsButton;
 
 void testButton(void);
+void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
@@ -41,6 +47,13 @@ void testButton(void){
  if(flagsButton.flagOk && !buttonOK){
  flagsButton.flagOk = 0;
  }
+}
+
+void configButton(void){
+ TRIS_buttonVoltar = 1;
+ TRIS_buttonEsquerda = 1;
+ TRIS_buttonDireita = 1;
+ TRIS_buttonOK = 1;
 }
 
 void configTMR0(void){

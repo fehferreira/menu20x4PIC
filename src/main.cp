@@ -1,10 +1,15 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 #line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-extern char *buttonVoltar;
-extern char *buttonEsquerda;
-extern char *buttonDireita;
-extern char *buttonOK;
+extern sfr sbit buttonVoltar;
+extern sfr sbit buttonEsquerda;
+extern sfr sbit buttonDireita;
+extern sfr sbit buttonOK;
+
+extern sfr sbit TRIS_buttonVoltar;
+extern sfr sbit TRIS_buttonEsquerda;
+extern sfr sbit TRIS_buttonDireita;
+extern sfr sbit TRIS_buttonOK;
 
 union flagButton{
  char flagsJuntas;
@@ -17,6 +22,7 @@ union flagButton{
 }flagsButton;
 
 void testButton(void);
+void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
@@ -34,6 +40,16 @@ sbit LCD_D5_Direction at TRISD3_bit;
 sbit LCD_D6_Direction at TRISD4_bit;
 sbit LCD_D7_Direction at TRISD5_bit;
 
+sbit buttonVoltar at RB4_bit;
+sbit buttonEsquerda at RB5_bit;
+sbit buttonDireita at RB6_bit;
+sbit buttonOK at RB7_bit;
+
+sbit TRIS_buttonVoltar at TRISB4_bit;
+sbit TRIS_buttonEsquerda at TRISB5_bit;
+sbit TRIS_buttonDireita at TRISB6_bit;
+sbit TRIS_buttonOK at TRISB7_bit;
+
 
 char msnInicial [21] = "---- JC MODULOS ----";
 char tracos [21] = "--------------------";
@@ -44,7 +60,7 @@ void InitializeSystem(void){
 
  Lcd_Init();
  configTMR0();
-
+ configButton();
 }
 
 void main(void){

@@ -149,6 +149,10 @@ btsee
 btsee_bit
 btsef
 btsef_bit
+buttondireita
+buttonesquerda
+buttonok
+buttonvoltar
 byte2double
 c
 c_bit
@@ -243,6 +247,7 @@ cmip
 cmip_bit
 comfrem
 compare_double
+configbutton
 configtmr0
 crc16ee
 crc16ee_bit
@@ -1300,6 +1305,10 @@ toutps2_bit
 toutps3
 toutps3_bit
 tracos
+tris_buttondireita
+tris_buttonesquerda
+tris_buttonok
+tris_buttonvoltar
 trisa
 trisa0
 trisa0_bit
