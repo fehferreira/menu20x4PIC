@@ -23,9 +23,12 @@ void resetTMR0(void);
 
  _Bool  backBtnPress(void);
  _Bool  okBtnPress(void);
+ _Bool  flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+void setFlagCleanLCD(void);
+void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
@@ -41,7 +44,8 @@ union flagButton{
 }flagsButton;
 
 bit flagMenuOk,
- flagMenuBack;
+ flagMenuBack,
+ flagCleanLCD;
 
 char valueButton,
  minValue,
@@ -85,6 +89,7 @@ void configButton(void){
 
  flagMenuBack = 0;
  flagMenuOk = 0;
+ flagCleanLCD = 0;
 
 }
 
@@ -137,4 +142,18 @@ void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
  minValue = minVar;
  maxValue = maxVar;
  incrementValue = incVar;
+}
+
+ _Bool  flagCleanLCDisSet(void){
+ if(flagCleanLCD)
+ return  1 ;
+ return  0 ;
+}
+
+void setFlagCleanLCD(void){
+ flagCleanLCD = 1;
+}
+
+void cleanFlagCleanLCD(void){
+ flagCleanLCD = 0;
 }

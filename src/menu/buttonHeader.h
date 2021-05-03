@@ -24,10 +24,12 @@ void resetTMR0(void);
 
 bool backBtnPress(void);
 bool okBtnPress(void);
+bool flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+void setFlagCleanLCD(void);
+void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-

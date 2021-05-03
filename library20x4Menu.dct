@@ -230,6 +230,8 @@ ckp
 ckp_bit
 cleanbtnback
 cleanbtnok
+cleanflagcleanlcd
+cleanlcd
 clk1en
 clk1en_bit
 clkcfg0
@@ -462,6 +464,8 @@ ferr
 ferr_bit
 fixsign32
 flagback
+flagcleanlcd
+flagcleanlcdisset
 flagleft
 flagmenuback
 flagmenuok
@@ -1080,6 +1084,7 @@ sen_bit
 sendb
 sendb_bit
 setfdz32
+setflagcleanlcd
 setfov32
 setfun32
 setiov3224

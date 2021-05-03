@@ -24,9 +24,12 @@ void resetTMR0(void);
 
  _Bool  backBtnPress(void);
  _Bool  okBtnPress(void);
+ _Bool  flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+void setFlagCleanLCD(void);
+void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
@@ -36,7 +39,15 @@ void showMainMenu(unsigned short valueReceive);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/viewMenu.c"
 char montadoras[3][20] = {"->FIAT","->FORD","->GM"};
 
+void cleanLCD(void){
+ cleanFlagCleanLCD();
+ Lcd_Cmd(_LCD_CLEAR);
+}
+
 void showMainMenu(unsigned short valueReceive){
+ if(flagCleanLCDisSet())
+ cleanLCD();
+
  Lcd_Out(1,1,"->MONTADORAS");
  Lcd_Out(2,2,montadoras[valueReceive]);
 }

@@ -9,7 +9,15 @@
 
 char montadoras[3][20] = {"->FIAT","->FORD","->GM"};
 
+void cleanLCD(void){
+    cleanFlagCleanLCD();
+    Lcd_Cmd(_LCD_CLEAR);
+}
+
 void showMainMenu(unsigned short valueReceive){
+    if(flagCleanLCDisSet())
+        cleanLCD();
+
     Lcd_Out(1,1,"->MONTADORAS");
     Lcd_Out(2,2,montadoras[valueReceive]);
 }

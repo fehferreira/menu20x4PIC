@@ -15,6 +15,13 @@ main
 		okBtnPress
 		getSelectValue
 		showMainMenu
+			flagCleanLCDisSet
+			cleanLCD
+				cleanFlagCleanLCD
+				Lcd_Cmd
+					Delay_1us
+					Delay_5500us
+					Delay_50us
 			Lcd_Out
 				Lcd_Cmd
 					Delay_1us

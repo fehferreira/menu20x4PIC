@@ -18,7 +18,8 @@ union flagButton{
 }flagsButton;
 
 bit flagMenuOk,
-    flagMenuBack;
+    flagMenuBack,
+    flagCleanLCD;
 
 char valueButton,
      minValue,
@@ -62,6 +63,7 @@ void configButton(void){
     
     flagMenuBack = 0;
     flagMenuOk = 0;
+    flagCleanLCD = 0;
     
 }
 
@@ -115,3 +117,19 @@ void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
     maxValue = maxVar;
     incrementValue = incVar;
 }
+
+bool flagCleanLCDisSet(void){
+    if(flagCleanLCD)
+        return true;
+    return false;
+}
+
+void setFlagCleanLCD(void){
+    flagCleanLCD = 1;
+}
+
+void cleanFlagCleanLCD(void){
+    flagCleanLCD = 0;
+}
+
+
