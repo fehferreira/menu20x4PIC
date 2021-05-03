@@ -1,6 +1,11 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-#line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+
+
+
+ typedef char _Bool;
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 extern sfr sbit buttonVoltar;
 extern sfr sbit buttonEsquerda;
 extern sfr sbit buttonDireita;
@@ -15,6 +20,8 @@ void testButton(void);
 void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
+
+ _Bool  backBtnPress(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
@@ -40,10 +47,6 @@ sbit TRIS_buttonEsquerda at TRISB5_bit;
 sbit TRIS_buttonDireita at TRISB6_bit;
 sbit TRIS_buttonOK at TRISB7_bit;
 
-
-char msnInicial [21] = "---- JC MODULOS ----";
-char tracos [21] = "--------------------";
-
 void InitializeSystem(void){
  TRISA = 0b00000000;
  TRISB = 0b00000000;
@@ -55,11 +58,6 @@ void InitializeSystem(void){
 
 void main(void){
  InitializeSystem();
-
- Lcd_Out(1,1,tracos);
- Lcd_Out(2,1,msnInicial);
- Lcd_Out(3,1,msnInicial);
- Lcd_Out(4,1,tracos);
 
  while(1){
 

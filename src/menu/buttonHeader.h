@@ -5,6 +5,8 @@
 *   HEADER BUTTON FILE
 */
 
+#include <stdbool.h>
+
 extern sfr sbit buttonVoltar;
 extern sfr sbit buttonEsquerda;
 extern sfr sbit buttonDireita;
@@ -19,3 +21,5 @@ void testButton(void);
 void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
+
+bool backBtnPress(void);

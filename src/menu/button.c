@@ -48,19 +48,23 @@ void configButton(void){
 }
 
 void configTMR0(void){
-    T0CON	 = 0x88;  //config TMR0 interrupt by 4ms
+    T0CON         = 0x88;  //config TMR0 interrupt by 4ms
     
-    TMR0H	 = 0xB1;
-    TMR0L	 = 0xE0;
+    TMR0H         = 0xB1;
+    TMR0L         = 0xE0;
     if(!GIEL_bit)GIEL_bit = 1;
     if(!IPEN_bit) IPEN_bit = 1;
     
-    TMR0IE_bit	 = 1;
+    TMR0IE_bit         = 1;
     TMR0IF_bit   = 0;
 }
 
 void resetTMR0(void){
-    TMR0H	 = 0xB1;
-    TMR0L	 = 0xE0;
+    TMR0H         = 0xB1;
+    TMR0L         = 0xE0;
     TMR0IF_bit   = 0;
+}
+
+bool backBtnPress(void){
+    return buttonVoltar;
 }

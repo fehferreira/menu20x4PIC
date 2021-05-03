@@ -5,9 +5,11 @@
 *   MENU MAIN FILE
 */
 
+#include "menuHeader.h"
+
 void mainMenu(void){
     while(!backBtnPress()){
-        while(!backBtnPress() || !okBtnPress())
+        /*while(!backBtnPress() || !okBtnPress())
             showMainMenu();
 
         if(okBtnPress()){
@@ -18,7 +20,7 @@ void mainMenu(void){
                 case 1:
                     break;
             }
-        }
+        }*/
     }
-    cleanBtnBack();
+    //cleanBtnBack();
 }

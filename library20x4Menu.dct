@@ -121,6 +121,7 @@ b4
 b5
 b6
 b7
+backbtnpress
 banked
 baudcon
 baudctl
@@ -736,7 +737,7 @@ lvv2_bit
 lvv3
 lvv3_bit
 main
-msninicial
+mainmenu
 mul_16x16_s
 mul_16x16_u
 mul_32x32_fp
@@ -1298,7 +1299,6 @@ toutps2
 toutps2_bit
 toutps3
 toutps3_bit
-tracos
 tris_buttondireita
 tris_buttonesquerda
 tris_buttonok

@@ -1,6 +1,11 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-#line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+
+
+
+ typedef char _Bool;
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 extern sfr sbit buttonVoltar;
 extern sfr sbit buttonEsquerda;
 extern sfr sbit buttonDireita;
@@ -15,6 +20,8 @@ void testButton(void);
 void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
+
+ _Bool  backBtnPress(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 union flagButton{
  char flagsJuntas;
@@ -25,7 +32,6 @@ union flagButton{
  char flagOk: 1;
  };
 }flagsButton;
-
 
 void testButton(void){
  if(!flagsButton.flagVoltar && buttonVoltar) flagsButton.flagVoltar = 1;
@@ -73,4 +79,8 @@ void resetTMR0(void){
  TMR0H = 0xB1;
  TMR0L = 0xE0;
  TMR0IF_bit = 0;
+}
+
+ _Bool  backBtnPress(void){
+ return buttonVoltar;
 }
