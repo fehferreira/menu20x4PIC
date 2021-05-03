@@ -35,23 +35,27 @@ void testButton(void){
     if(flagsButton.flagBack    && !buttonBack){
         flagsButton.flagBack = 0;
         flagMenuBack = 1;
+        setFlagCleanLCD();
     }
     
     if(flagsButton.flagLeft    && !buttonLeft){
         flagsButton.flagLeft = 0;
         if(valueButton > minValue && valueButton <= maxValue)
             valueButton -= incrementValue;
+        setFlagCleanLCD();
     }
     
     if(flagsButton.flagRight   && !buttonRight){
         flagsButton.flagRight = 0;
         if(valueButton < maxValue && valueButton >= minValue)
             valueButton += incrementValue;
+        setFlagCleanLCD();
     }
     
     if(flagsButton.flagOk      && !buttonOK){
         flagsButton.flagOk = 0;
         flagMenuOk = 1;
+        setFlagCleanLCD();
     }
 }
 

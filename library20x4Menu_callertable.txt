@@ -38,3 +38,4 @@ main
 interrupt_low
 	resetTMR0
 	testButton
+		setFlagCleanLCD
