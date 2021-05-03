@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=src\main.c
+Value=src\menu\viewMenu.c
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -18,17 +18,21 @@ Value=
 [FILES]
 File0=.\src\main.c
 File1=.\src\menu\button.c
-Count=2
+File2=.\src\menu\menu.c
+File3=.\src\menu\viewMenu.c
+Count=4
 [BINARIES]
 Count=0
 [IMAGES]
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-File0=.\src\main.c
-File1=.\src\menu\button.c
-File2=.\src\menu\buttonHeader.h
-Count=3
+File0=.\src\menu\menu.c
+File1=.\src\menu\viewMenu.c
+File2=.\src\main.c
+File3=.\src\menu\button.c
+File4=.\src\menu\buttonHeader.h
+Count=5
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -43,7 +47,8 @@ Count=2
 Count=0
 [HEADERS]
 File0=.\src\menu\buttonHeader.h
-Count=1
+File1=.\src\menu\menuHeader.h
+Count=2
 [PLDS]
 Count=0
 [Useses]
@@ -58,12 +63,15 @@ IVT_BASE=00000008
 1=Sources
 2=src
 4=menu
-Count=4
+8=Header Files
+9=src
+10=menu
+Count=7
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries
 282=Lcd
-Count=3
+Count=4
 [PROGRAMMER_TYPE]
 Value=mikroE mikroProg
 [CODEGRIP_OPTIONS]

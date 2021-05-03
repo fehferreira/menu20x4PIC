@@ -1,21 +1,71 @@
 #line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-#line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-extern sfr sbit buttonVoltar;
-extern sfr sbit buttonEsquerda;
-extern sfr sbit buttonDireita;
+#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+
+
+
+ typedef char _Bool;
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+extern sfr sbit buttonBack;
+extern sfr sbit buttonLeft;
+extern sfr sbit buttonRight;
 extern sfr sbit buttonOK;
 
-extern sfr sbit TRIS_buttonVoltar;
-extern sfr sbit TRIS_buttonEsquerda;
-extern sfr sbit TRIS_buttonDireita;
+extern sfr sbit TRIS_buttonBack;
+extern sfr sbit TRIS_buttonLeft;
+extern sfr sbit TRIS_buttonRight;
 extern sfr sbit TRIS_buttonOK;
 
 void testButton(void);
 void configButton(void);
 void configTMR0(void);
 void resetTMR0(void);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
+
+ _Bool  backBtnPress(void);
+ _Bool  okBtnPress(void);
+ _Bool  flagCleanLCDisSet(void);
+
+void cleanBtnOk(void);
+void cleanBtnBack(void);
+void setFlagCleanLCD(void);
+void cleanFlagCleanLCD(void);
+
+unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
+#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+extern sfr sbit buttonBack;
+extern sfr sbit buttonLeft;
+extern sfr sbit buttonRight;
+extern sfr sbit buttonOK;
+
+extern sfr sbit TRIS_buttonBack;
+extern sfr sbit TRIS_buttonLeft;
+extern sfr sbit TRIS_buttonRight;
+extern sfr sbit TRIS_buttonOK;
+
+void testButton(void);
+void configButton(void);
+void configTMR0(void);
+void resetTMR0(void);
+
+ _Bool  backBtnPress(void);
+ _Bool  okBtnPress(void);
+ _Bool  flagCleanLCDisSet(void);
+
+void cleanBtnOk(void);
+void cleanBtnBack(void);
+void setFlagCleanLCD(void);
+void cleanFlagCleanLCD(void);
+
+unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
+void mainMenu(void);
+void showMainMenu(unsigned short valueReceive);
+#line 11 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
 sbit LCD_D4 at RD2_bit;
@@ -30,25 +80,24 @@ sbit LCD_D5_Direction at TRISD3_bit;
 sbit LCD_D6_Direction at TRISD4_bit;
 sbit LCD_D7_Direction at TRISD5_bit;
 
-sbit buttonVoltar at RB4_bit;
-sbit buttonEsquerda at RB5_bit;
-sbit buttonDireita at RB6_bit;
+sbit buttonBack at RB4_bit;
+sbit buttonLeft at RB5_bit;
+sbit buttonRight at RB6_bit;
 sbit buttonOK at RB7_bit;
 
-sbit TRIS_buttonVoltar at TRISB4_bit;
-sbit TRIS_buttonEsquerda at TRISB5_bit;
-sbit TRIS_buttonDireita at TRISB6_bit;
+sbit TRIS_buttonBack at TRISB4_bit;
+sbit TRIS_buttonLeft at TRISB5_bit;
+sbit TRIS_buttonRight at TRISB6_bit;
 sbit TRIS_buttonOK at TRISB7_bit;
-
-
-char msnInicial [21] = "---- JC MODULOS ----";
-char tracos [21] = "--------------------";
 
 void InitializeSystem(void){
  TRISA = 0b00000000;
  TRISB = 0b00000000;
 
  Lcd_Init();
+ Lcd_Cmd(_LCD_CURSOR_OFF);
+ Lcd_Cmd(_LCD_CLEAR);
+
  configTMR0();
  configButton();
 }
@@ -56,13 +105,8 @@ void InitializeSystem(void){
 void main(void){
  InitializeSystem();
 
- Lcd_Out(1,1,tracos);
- Lcd_Out(2,1,msnInicial);
- Lcd_Out(3,1,msnInicial);
- Lcd_Out(4,1,tracos);
-
  while(1){
-
+ mainMenu();
  }
 }
 
