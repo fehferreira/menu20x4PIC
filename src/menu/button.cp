@@ -61,15 +61,13 @@ void testButton(void){
 
  if(flagsButton.flagLeft && !buttonLeft){
  flagsButton.flagLeft = 0;
- if((valueButton - incrementValue) < minValue || (valueButton - incrementValue) >= maxValue)
- valueButton = minValue;
+ if(valueButton > minValue && valueButton <= maxValue)
  valueButton -= incrementValue;
  }
 
  if(flagsButton.flagRight && !buttonRight){
  flagsButton.flagRight = 0;
- if((valueButton + incrementValue) > maxValue || (valueButton + incrementValue) == 0)
- valueButton = maxValue;
+ if(valueButton < maxValue && valueButton >= minValue)
  valueButton += incrementValue;
  }
 
