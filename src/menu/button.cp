@@ -40,6 +40,9 @@ union flagButton{
  };
 }flagsButton;
 
+bit flagMenuOk,
+ flagMenuBack;
+
 char valueButton,
  minValue,
  maxValue,
@@ -53,6 +56,7 @@ void testButton(void){
 
  if(flagsButton.flagBack && !buttonBack){
  flagsButton.flagBack = 0;
+ flagMenuBack = 1;
  }
 
  if(flagsButton.flagLeft && !buttonLeft){
@@ -71,6 +75,7 @@ void testButton(void){
 
  if(flagsButton.flagOk && !buttonOK){
  flagsButton.flagOk = 0;
+ flagMenuOk = 1;
  }
 }
 
@@ -79,6 +84,10 @@ void configButton(void){
  TRIS_buttonLeft = 1;
  TRIS_buttonRight = 1;
  TRIS_buttonOK = 1;
+
+ flagMenuBack = 0;
+ flagMenuOk = 0;
+
 }
 
 void configTMR0(void){
@@ -100,23 +109,23 @@ void resetTMR0(void){
 }
 
  _Bool  backBtnPress(void){
- if(flagsButton.flagBack)
+ if(flagMenuBack)
  return  1 ;
  return  0 ;
 }
 
  _Bool  okBtnPress(void){
- if(flagsButton.flagOk)
+ if(flagMenuOk)
  return  1 ;
  return  0 ;
 }
 
 void cleanBtnOk(void){
- flagsButton.flagOk = 0;
+ flagMenuOk = 0;
 }
 
 void cleanBtnBack(void){
- flagsButton.flagBack = 0;
+ flagMenuBack = 0;
 }
 
 unsigned short getSelectValue(void){

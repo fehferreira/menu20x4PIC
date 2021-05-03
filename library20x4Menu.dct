@@ -463,6 +463,8 @@ ferr_bit
 fixsign32
 flagback
 flagleft
+flagmenuback
+flagmenuok
 flagok
 flagright
 flagsbutton

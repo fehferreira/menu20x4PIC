@@ -33,6 +33,7 @@ void testButton(void){
     
     if(flagsButton.flagBack    && !buttonBack){
         flagsButton.flagBack = 0;
+        flagMenuBack = 1;
     }
     
     if(flagsButton.flagLeft    && !buttonLeft){
@@ -51,6 +52,7 @@ void testButton(void){
     
     if(flagsButton.flagOk      && !buttonOK){
         flagsButton.flagOk = 0;
+        flagMenuOk = 1;
     }
 }
 
@@ -84,23 +86,23 @@ void resetTMR0(void){
 }
 
 bool backBtnPress(void){
-    if(flagsButton.flagBack)
+    if(flagMenuBack)
         return true;
     return false;
 }
 
 bool okBtnPress(void){
-    if(flagsButton.flagOk)
+    if(flagMenuOk)
         return true;
     return false;
 }
 
 void cleanBtnOk(void){
-    flagsButton.flagOk = 0;
+    flagMenuOk = 0;
 }
 
 void cleanBtnBack(void){
-    flagsButton.flagBack = 0;
+    flagMenuBack = 0;
 }
 
 unsigned short getSelectValue(void){
