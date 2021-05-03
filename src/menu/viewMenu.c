@@ -7,7 +7,7 @@
 
 #include "menuHeader.h"
 
-char montadoras[3][20] = {"->FORD","->FIAT","->GM"};
+char montadoras[3][20] = {"->FIAT","->FORD","->GM"};
 
 void showMainMenu(unsigned short valueReceive){
     Lcd_Out(1,1,"->MONTADORAS");
