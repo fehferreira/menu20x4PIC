@@ -22,6 +22,11 @@ void configTMR0(void);
 void resetTMR0(void);
 
  _Bool  backBtnPress(void);
+ _Bool  okBtnPress(void);
+
+void cleanBtnOk(void);
+void cleanBtnBack(void);
+unsigned short getSelectValue(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;

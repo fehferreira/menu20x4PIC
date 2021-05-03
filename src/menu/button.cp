@@ -22,6 +22,11 @@ void configTMR0(void);
 void resetTMR0(void);
 
  _Bool  backBtnPress(void);
+ _Bool  okBtnPress(void);
+
+void cleanBtnOk(void);
+void cleanBtnBack(void);
+unsigned short getSelectValue(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 union flagButton{
  char flagsJuntas;
@@ -32,6 +37,8 @@ union flagButton{
  char flagOk: 1;
  };
 }flagsButton;
+
+unsigned short valueButton;
 
 void testButton(void){
  if(!flagsButton.flagVoltar && buttonVoltar) flagsButton.flagVoltar = 1;
@@ -82,5 +89,25 @@ void resetTMR0(void){
 }
 
  _Bool  backBtnPress(void){
- return buttonVoltar;
+ if(buttonVoltar)
+ return  1 ;
+ return  0 ;
+}
+
+ _Bool  okBtnPress(void){
+ if(buttonOK)
+ return  1 ;
+ return  0 ;
+}
+
+void cleanBtnOk(void){
+ flagsButton.flagOk = 0;
+}
+
+void cleanBtnBack(void){
+ flagsButton.flagVoltar = 0;
+}
+
+unsigned short getSelectValue(void){
+ return valueButton;
 }

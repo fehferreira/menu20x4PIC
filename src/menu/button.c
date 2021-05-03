@@ -17,6 +17,8 @@ union flagButton{
     };
 }flagsButton;
 
+unsigned short valueButton;
+
 void testButton(void){
     if(!flagsButton.flagVoltar      && buttonVoltar)   flagsButton.flagVoltar = 1;
     if(!flagsButton.flagEsquerda    && buttonEsquerda) flagsButton.flagEsquerda = 1;
@@ -66,5 +68,26 @@ void resetTMR0(void){
 }
 
 bool backBtnPress(void){
-    return buttonVoltar;
+    if(buttonVoltar)
+        return true;
+    return false;
 }
+
+bool okBtnPress(void){
+    if(buttonOK)
+        return true;
+    return false;
+}
+
+void cleanBtnOk(void){
+    flagsButton.flagOk = 0;
+}
+
+void cleanBtnBack(void){
+    flagsButton.flagVoltar = 0;
+}
+
+unsigned short getSelectValue(void){
+    return valueButton;
+}
+

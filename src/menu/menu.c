@@ -9,8 +9,8 @@
 
 void mainMenu(void){
     while(!backBtnPress()){
-        /*while(!backBtnPress() || !okBtnPress())
-            showMainMenu();
+        while(!backBtnPress() || !okBtnPress())
+            //showMainMenu();
 
         if(okBtnPress()){
             cleanBtnOk();
@@ -20,7 +20,7 @@ void mainMenu(void){
                 case 1:
                     break;
             }
-        }*/
+        }
     }
-    //cleanBtnBack();
+    cleanBtnBack();
 }

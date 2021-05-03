@@ -23,3 +23,8 @@ void configTMR0(void);
 void resetTMR0(void);
 
 bool backBtnPress(void);
+bool okBtnPress(void);
+
+void cleanBtnOk(void);
+void cleanBtnBack(void);
+unsigned short getSelectValue(void);

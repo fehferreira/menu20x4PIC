@@ -227,6 +227,8 @@ cke
 cke_bit
 ckp
 ckp_bit
+cleanbtnback
+cleanbtnok
 clk1en
 clk1en_bit
 clkcfg0
@@ -507,6 +509,7 @@ fsr2ptr
 gcen
 gcen_bit
 get_fosc_khz
+getselectvalue
 gie
 gie_bit
 gie_gieh
@@ -780,6 +783,7 @@ oerr
 oerr_bit
 oespp
 oespp_bit
+okbtnpress
 osc2
 osc2_bit
 osccon
@@ -1456,6 +1460,7 @@ uteye
 uteye_bit
 utrdis
 utrdis_bit
+valuebutton
 vcfg0
 vcfg0_bit
 vcfg1
