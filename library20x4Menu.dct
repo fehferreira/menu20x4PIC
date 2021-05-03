@@ -741,6 +741,7 @@ lvv3
 lvv3_bit
 main
 mainmenu
+montadoras
 mul_16x16_s
 mul_16x16_u
 mul_32x32_fp
@@ -1078,6 +1079,7 @@ setfov32
 setfun32
 setiov3224
 setjmp
+showmainmenu
 smp
 smp_bit
 sofie

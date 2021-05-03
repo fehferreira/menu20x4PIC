@@ -20,6 +20,13 @@ L_mainMenu2:
 	GOTO        L__mainMenu11
 	GOTO        L_mainMenu3
 L__mainMenu11:
+;menu.c,13 :: 		showMainMenu(getSelectValue());
+	CALL        _getSelectValue+0, 0
+	MOVF        R0, 0 
+	MOVWF       FARG_showMainMenu_valueReceive+0 
+	CALL        _showMainMenu+0, 0
+	GOTO        L_mainMenu2
+L_mainMenu3:
 ;menu.c,15 :: 		if(okBtnPress()){
 	CALL        _okBtnPress+0, 0
 	MOVF        R0, 1 
@@ -51,8 +58,6 @@ L_mainMenu7:
 L_mainMenu8:
 ;menu.c,23 :: 		}
 L_mainMenu6:
-	GOTO        L_mainMenu2
-L_mainMenu3:
 ;menu.c,24 :: 		}
 	GOTO        L_mainMenu0
 L_mainMenu1:

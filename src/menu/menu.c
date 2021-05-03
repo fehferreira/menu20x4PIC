@@ -10,7 +10,7 @@
 void mainMenu(void){
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
-            //showMainMenu();
+            showMainMenu(getSelectValue());
 
         if(okBtnPress()){
             cleanBtnOk();

@@ -6,3 +6,5 @@
 */
 
 #include "buttonHeader.h"
+
+void showMainMenu(unsigned short valueReceive);

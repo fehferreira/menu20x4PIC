@@ -1,4 +1,4 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/menu.c"
+#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/viewMenu.c"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 #line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
@@ -30,21 +30,10 @@ void cleanBtnBack(void);
 unsigned short getSelectValue(void);
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
 void showMainMenu(unsigned short valueReceive);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/menu.c"
-void mainMenu(void){
- while(!backBtnPress()){
- while(!backBtnPress() || !okBtnPress())
- showMainMenu(getSelectValue());
+#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/viewMenu.c"
+char montadoras[3][20] = {"->FORD","->FIAT","->GM"};
 
- if(okBtnPress()){
- cleanBtnOk();
- switch(getSelectValue()){
- case 0:
- break;
- case 1:
- break;
- }
- }
- }
- cleanBtnBack();
+void showMainMenu(unsigned short valueReceive){
+ Lcd_Out(1,1,"->MONTADORAS");
+ Lcd_Out(2,2,montadoras[valueReceive]);
 }
