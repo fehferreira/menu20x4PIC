@@ -37,6 +37,9 @@ void InitializeSystem(void){
     TRISB = 0b00000000;
     
     Lcd_Init();
+    Lcd_Cmd(_LCD_CURSOR_OFF);
+    Lcd_Cmd(_LCD_CLEAR);
+    
     configTMR0();
     configButton();
 }

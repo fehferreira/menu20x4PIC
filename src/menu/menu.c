@@ -8,6 +8,7 @@
 #include "menuHeader.h"
 
 void mainMenu(void){
+    setValueMenuButton(0,0,2,1);
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
             showMainMenu(getSelectValue());

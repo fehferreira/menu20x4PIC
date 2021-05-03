@@ -17,7 +17,13 @@ union flagButton{
     };
 }flagsButton;
 
-unsigned short valueButton;
+bit flagMenuOk,
+    flagMenuBack;
+
+char valueButton,
+     minValue,
+     maxValue,
+     incrementValue;
 
 void testButton(void){
     if(!flagsButton.flagBack    && buttonBack)  flagsButton.flagBack = 1;
@@ -31,10 +37,16 @@ void testButton(void){
     
     if(flagsButton.flagLeft    && !buttonLeft){
         flagsButton.flagLeft = 0;
+        if((valueButton - incrementValue) < minValue || (valueButton - incrementValue) >= maxValue)
+            valueButton = minValue;
+        valueButton -= incrementValue;
     }
     
     if(flagsButton.flagRight   && !buttonRight){
         flagsButton.flagRight = 0;
+        if((valueButton + incrementValue) > maxValue || (valueButton + incrementValue) == 0)
+            valueButton = maxValue;
+        valueButton += incrementValue;
     }
     
     if(flagsButton.flagOk      && !buttonOK){
@@ -47,6 +59,10 @@ void configButton(void){
     TRIS_buttonLeft = 1;
     TRIS_buttonRight = 1;
     TRIS_buttonOK = 1;
+    
+    flagMenuBack = 0;
+    flagMenuOk = 0;
+    
 }
 
 void configTMR0(void){
@@ -91,3 +107,9 @@ unsigned short getSelectValue(void){
     return valueButton;
 }
 
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+    valueButton = initVar;
+    minValue = minVar;
+    maxValue = maxVar;
+    incrementValue = incVar;
+}

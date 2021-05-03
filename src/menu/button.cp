@@ -26,7 +26,9 @@ void resetTMR0(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+
 unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 union flagButton{
  char allFlags;
@@ -38,7 +40,10 @@ union flagButton{
  };
 }flagsButton;
 
-unsigned short valueButton;
+char valueButton,
+ minValue,
+ maxValue,
+ incrementValue;
 
 void testButton(void){
  if(!flagsButton.flagBack && buttonBack) flagsButton.flagBack = 1;
@@ -52,10 +57,16 @@ void testButton(void){
 
  if(flagsButton.flagLeft && !buttonLeft){
  flagsButton.flagLeft = 0;
+ if((valueButton - incrementValue) < minValue || (valueButton - incrementValue) >= maxValue)
+ valueButton = minValue;
+ valueButton -= incrementValue;
  }
 
  if(flagsButton.flagRight && !buttonRight){
  flagsButton.flagRight = 0;
+ if((valueButton + incrementValue) > maxValue || (valueButton + incrementValue) == 0)
+ valueButton = maxValue;
+ valueButton += incrementValue;
  }
 
  if(flagsButton.flagOk && !buttonOK){
@@ -110,4 +121,11 @@ void cleanBtnBack(void){
 
 unsigned short getSelectValue(void){
  return valueButton;
+}
+
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+ valueButton = initVar;
+ minValue = minVar;
+ maxValue = maxVar;
+ incrementValue = incVar;
 }

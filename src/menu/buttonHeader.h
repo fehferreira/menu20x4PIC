@@ -27,4 +27,7 @@ bool okBtnPress(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+
 unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+

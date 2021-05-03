@@ -553,6 +553,7 @@ idleif
 idleif_bit
 idlen
 idlen_bit
+incrementvalue
 indf0
 indf1
 indf2
@@ -741,6 +742,8 @@ lvv3
 lvv3_bit
 main
 mainmenu
+maxvalue
+minvalue
 montadoras
 mul_16x16_s
 mul_16x16_u
@@ -1079,6 +1082,7 @@ setfov32
 setfun32
 setiov3224
 setjmp
+setvaluemenubutton
 showmainmenu
 smp
 smp_bit

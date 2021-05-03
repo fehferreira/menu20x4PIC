@@ -26,7 +26,9 @@ void resetTMR0(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+
 unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
 #line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
 #line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
@@ -51,10 +53,11 @@ void resetTMR0(void);
 
 void cleanBtnOk(void);
 void cleanBtnBack(void);
+
 unsigned short getSelectValue(void);
+void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
 void mainMenu(void);
-
 void showMainMenu(unsigned short valueReceive);
 #line 11 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/main.c"
 sbit LCD_RS at RD0_bit;
@@ -86,6 +89,9 @@ void InitializeSystem(void){
  TRISB = 0b00000000;
 
  Lcd_Init();
+ Lcd_Cmd(_LCD_CURSOR_OFF);
+ Lcd_Cmd(_LCD_CLEAR);
+
  configTMR0();
  configButton();
 }
