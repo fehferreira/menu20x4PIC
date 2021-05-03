@@ -6,6 +6,7 @@
 */
 
 #include "menu/buttonHeader.h"
+#include "menu/menuHeader.h"
 
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
@@ -21,15 +22,15 @@ sbit LCD_D5_Direction at TRISD3_bit;
 sbit LCD_D6_Direction at TRISD4_bit;
 sbit LCD_D7_Direction at TRISD5_bit;
 
-sbit buttonBack   at RB4_bit;
-sbit buttonLeft at RB5_bit;
-sbit buttonRight  at RB6_bit;
-sbit buttonOK       at RB7_bit;
+sbit buttonBack  at RB4_bit;
+sbit buttonLeft  at RB5_bit;
+sbit buttonRight at RB6_bit;
+sbit buttonOK    at RB7_bit;
 
-sbit TRIS_buttonBack      at TRISB4_bit;
+sbit TRIS_buttonBack    at TRISB4_bit;
 sbit TRIS_buttonLeft    at TRISB5_bit;
-sbit TRIS_buttonRight     at TRISB6_bit;
-sbit TRIS_buttonOK          at TRISB7_bit;
+sbit TRIS_buttonRight   at TRISB6_bit;
+sbit TRIS_buttonOK      at TRISB7_bit;
 
 void InitializeSystem(void){
     TRISA = 0b00000000;
@@ -44,7 +45,7 @@ void main(void){
     InitializeSystem();
 
     while(1){
-    
+        mainMenu();
     }
 }
 

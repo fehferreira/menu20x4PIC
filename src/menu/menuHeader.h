@@ -7,4 +7,6 @@
 
 #include "buttonHeader.h"
 
+void mainMenu(void);
+
 void showMainMenu(unsigned short valueReceive);

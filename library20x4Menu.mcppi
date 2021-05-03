@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=src\menu\viewMenu.c
+Value=src\main.c
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -30,7 +30,8 @@ ActiveImageIndex=-1
 File0=.\src\menu\menu.c
 File1=.\src\menu\viewMenu.c
 File2=.\src\menu\menuHeader.h
-Count=3
+File3=.\src\main.c
+Count=4
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
