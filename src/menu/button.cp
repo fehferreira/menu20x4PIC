@@ -92,13 +92,15 @@ void configButton(void){
 
 void configTMR0(void){
  T0CON = 0x88;
-
  TMR0H = 0xB1;
  TMR0L = 0xE0;
- if(!GIEL_bit)GIEL_bit = 1;
+
+ if(!GIEH_bit) GIEH_bit = 1;
+ if(!GIEL_bit) GIEL_bit = 1;
  if(!IPEN_bit) IPEN_bit = 1;
 
  TMR0IE_bit = 1;
+ TMR0IP_bit = 0;
  TMR0IF_bit = 0;
 }
 
