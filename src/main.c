@@ -21,14 +21,14 @@ sbit LCD_D5_Direction at TRISD3_bit;
 sbit LCD_D6_Direction at TRISD4_bit;
 sbit LCD_D7_Direction at TRISD5_bit;
 
-sbit buttonVoltar   at RB4_bit;
-sbit buttonEsquerda at RB5_bit;
-sbit buttonDireita  at RB6_bit;
+sbit buttonBack   at RB4_bit;
+sbit buttonLeft at RB5_bit;
+sbit buttonRight  at RB6_bit;
 sbit buttonOK       at RB7_bit;
 
-sbit TRIS_buttonVoltar      at TRISB4_bit;
-sbit TRIS_buttonEsquerda    at TRISB5_bit;
-sbit TRIS_buttonDireita     at TRISB6_bit;
+sbit TRIS_buttonBack      at TRISB4_bit;
+sbit TRIS_buttonLeft    at TRISB5_bit;
+sbit TRIS_buttonRight     at TRISB6_bit;
 sbit TRIS_buttonOK          at TRISB7_bit;
 
 void InitializeSystem(void){

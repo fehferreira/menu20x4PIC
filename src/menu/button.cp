@@ -6,14 +6,14 @@
 
  typedef char _Bool;
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-extern sfr sbit buttonVoltar;
-extern sfr sbit buttonEsquerda;
-extern sfr sbit buttonDireita;
+extern sfr sbit buttonBack;
+extern sfr sbit buttonLeft;
+extern sfr sbit buttonRight;
 extern sfr sbit buttonOK;
 
-extern sfr sbit TRIS_buttonVoltar;
-extern sfr sbit TRIS_buttonEsquerda;
-extern sfr sbit TRIS_buttonDireita;
+extern sfr sbit TRIS_buttonBack;
+extern sfr sbit TRIS_buttonLeft;
+extern sfr sbit TRIS_buttonRight;
 extern sfr sbit TRIS_buttonOK;
 
 void testButton(void);
@@ -29,11 +29,11 @@ void cleanBtnBack(void);
 unsigned short getSelectValue(void);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
 union flagButton{
- char flagsJuntas;
+ char allFlags;
  struct{
- char flagVoltar: 1;
- char flagEsquerda: 1;
- char flagDireita: 1;
+ char flagBack: 1;
+ char flagLeft: 1;
+ char flagRight: 1;
  char flagOk: 1;
  };
 }flagsButton;
@@ -41,21 +41,21 @@ union flagButton{
 unsigned short valueButton;
 
 void testButton(void){
- if(!flagsButton.flagVoltar && buttonVoltar) flagsButton.flagVoltar = 1;
- if(!flagsButton.flagEsquerda && buttonEsquerda) flagsButton.flagEsquerda = 1;
- if(!flagsButton.flagDireita && buttonDireita) flagsButton.flagDireita = 1;
+ if(!flagsButton.flagBack && buttonBack) flagsButton.flagBack = 1;
+ if(!flagsButton.flagLeft && buttonLeft) flagsButton.flagLeft = 1;
+ if(!flagsButton.flagRight && buttonRight) flagsButton.flagRight = 1;
  if(!flagsButton.flagOk && buttonOK) flagsButton.flagOk = 1;
 
- if(flagsButton.flagVoltar && !buttonVoltar){
- flagsButton.flagVoltar = 0;
+ if(flagsButton.flagBack && !buttonBack){
+ flagsButton.flagBack = 0;
  }
 
- if(flagsButton.flagEsquerda && !buttonEsquerda){
- flagsButton.flagEsquerda = 0;
+ if(flagsButton.flagLeft && !buttonLeft){
+ flagsButton.flagLeft = 0;
  }
 
- if(flagsButton.flagDireita && !buttonDireita){
- flagsButton.flagDireita = 0;
+ if(flagsButton.flagRight && !buttonRight){
+ flagsButton.flagRight = 0;
  }
 
  if(flagsButton.flagOk && !buttonOK){
@@ -64,9 +64,9 @@ void testButton(void){
 }
 
 void configButton(void){
- TRIS_buttonVoltar = 1;
- TRIS_buttonEsquerda = 1;
- TRIS_buttonDireita = 1;
+ TRIS_buttonBack = 1;
+ TRIS_buttonLeft = 1;
+ TRIS_buttonRight = 1;
  TRIS_buttonOK = 1;
 }
 
@@ -89,13 +89,13 @@ void resetTMR0(void){
 }
 
  _Bool  backBtnPress(void){
- if(buttonVoltar)
+ if(flagsButton.flagBack)
  return  1 ;
  return  0 ;
 }
 
  _Bool  okBtnPress(void){
- if(buttonOK)
+ if(flagsButton.flagOk)
  return  1 ;
  return  0 ;
 }
@@ -105,7 +105,7 @@ void cleanBtnOk(void){
 }
 
 void cleanBtnBack(void){
- flagsButton.flagVoltar = 0;
+ flagsButton.flagBack = 0;
 }
 
 unsigned short getSelectValue(void){

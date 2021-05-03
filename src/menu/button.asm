@@ -2,31 +2,31 @@
 _testButton:
 
 ;button.c,22 :: 		void testButton(void){
-;button.c,23 :: 		if(!flagsButton.flagVoltar      && buttonVoltar)   flagsButton.flagVoltar = 1;
+;button.c,23 :: 		if(!flagsButton.flagBack    && buttonBack)  flagsButton.flagBack = 1;
 	BTFSC       _flagsButton+0, 0 
 	GOTO        L_testButton2
-	BTFSS       buttonVoltar+0, BitPos(buttonVoltar+0) 
+	BTFSS       buttonBack+0, BitPos(buttonBack+0) 
 	GOTO        L_testButton2
 L__testButton35:
 	BSF         _flagsButton+0, 0 
 L_testButton2:
-;button.c,24 :: 		if(!flagsButton.flagEsquerda    && buttonEsquerda) flagsButton.flagEsquerda = 1;
+;button.c,24 :: 		if(!flagsButton.flagLeft    && buttonLeft)  flagsButton.flagLeft = 1;
 	BTFSC       _flagsButton+0, 1 
 	GOTO        L_testButton5
-	BTFSS       buttonEsquerda+0, BitPos(buttonEsquerda+0) 
+	BTFSS       buttonLeft+0, BitPos(buttonLeft+0) 
 	GOTO        L_testButton5
 L__testButton34:
 	BSF         _flagsButton+0, 1 
 L_testButton5:
-;button.c,25 :: 		if(!flagsButton.flagDireita     && buttonDireita)  flagsButton.flagDireita = 1;
+;button.c,25 :: 		if(!flagsButton.flagRight   && buttonRight) flagsButton.flagRight = 1;
 	BTFSC       _flagsButton+0, 2 
 	GOTO        L_testButton8
-	BTFSS       buttonDireita+0, BitPos(buttonDireita+0) 
+	BTFSS       buttonRight+0, BitPos(buttonRight+0) 
 	GOTO        L_testButton8
 L__testButton33:
 	BSF         _flagsButton+0, 2 
 L_testButton8:
-;button.c,26 :: 		if(!flagsButton.flagOk          && buttonOK)       flagsButton.flagOk = 1;
+;button.c,26 :: 		if(!flagsButton.flagOk      && buttonOK)    flagsButton.flagOk = 1;
 	BTFSC       _flagsButton+0, 3 
 	GOTO        L_testButton11
 	BTFSS       buttonOK+0, BitPos(buttonOK+0) 
@@ -34,37 +34,37 @@ L_testButton8:
 L__testButton32:
 	BSF         _flagsButton+0, 3 
 L_testButton11:
-;button.c,28 :: 		if(flagsButton.flagVoltar      && !buttonVoltar){
+;button.c,28 :: 		if(flagsButton.flagBack    && !buttonBack){
 	BTFSS       _flagsButton+0, 0 
 	GOTO        L_testButton14
-	BTFSC       buttonVoltar+0, BitPos(buttonVoltar+0) 
+	BTFSC       buttonBack+0, BitPos(buttonBack+0) 
 	GOTO        L_testButton14
 L__testButton31:
-;button.c,29 :: 		flagsButton.flagVoltar = 0;
+;button.c,29 :: 		flagsButton.flagBack = 0;
 	BCF         _flagsButton+0, 0 
 ;button.c,30 :: 		}
 L_testButton14:
-;button.c,32 :: 		if(flagsButton.flagEsquerda    && !buttonEsquerda){
+;button.c,32 :: 		if(flagsButton.flagLeft    && !buttonLeft){
 	BTFSS       _flagsButton+0, 1 
 	GOTO        L_testButton17
-	BTFSC       buttonEsquerda+0, BitPos(buttonEsquerda+0) 
+	BTFSC       buttonLeft+0, BitPos(buttonLeft+0) 
 	GOTO        L_testButton17
 L__testButton30:
-;button.c,33 :: 		flagsButton.flagEsquerda = 0;
+;button.c,33 :: 		flagsButton.flagLeft = 0;
 	BCF         _flagsButton+0, 1 
 ;button.c,34 :: 		}
 L_testButton17:
-;button.c,36 :: 		if(flagsButton.flagDireita     && !buttonDireita){
+;button.c,36 :: 		if(flagsButton.flagRight   && !buttonRight){
 	BTFSS       _flagsButton+0, 2 
 	GOTO        L_testButton20
-	BTFSC       buttonDireita+0, BitPos(buttonDireita+0) 
+	BTFSC       buttonRight+0, BitPos(buttonRight+0) 
 	GOTO        L_testButton20
 L__testButton29:
-;button.c,37 :: 		flagsButton.flagDireita = 0;
+;button.c,37 :: 		flagsButton.flagRight = 0;
 	BCF         _flagsButton+0, 2 
 ;button.c,38 :: 		}
 L_testButton20:
-;button.c,40 :: 		if(flagsButton.flagOk          && !buttonOK){
+;button.c,40 :: 		if(flagsButton.flagOk      && !buttonOK){
 	BTFSS       _flagsButton+0, 3 
 	GOTO        L_testButton23
 	BTFSC       buttonOK+0, BitPos(buttonOK+0) 
@@ -82,12 +82,12 @@ L_end_testButton:
 _configButton:
 
 ;button.c,45 :: 		void configButton(void){
-;button.c,46 :: 		TRIS_buttonVoltar = 1;
-	BSF         TRIS_buttonVoltar+0, BitPos(TRIS_buttonVoltar+0) 
-;button.c,47 :: 		TRIS_buttonEsquerda = 1;
-	BSF         TRIS_buttonEsquerda+0, BitPos(TRIS_buttonEsquerda+0) 
-;button.c,48 :: 		TRIS_buttonDireita = 1;
-	BSF         TRIS_buttonDireita+0, BitPos(TRIS_buttonDireita+0) 
+;button.c,46 :: 		TRIS_buttonBack = 1;
+	BSF         TRIS_buttonBack+0, BitPos(TRIS_buttonBack+0) 
+;button.c,47 :: 		TRIS_buttonLeft = 1;
+	BSF         TRIS_buttonLeft+0, BitPos(TRIS_buttonLeft+0) 
+;button.c,48 :: 		TRIS_buttonRight = 1;
+	BSF         TRIS_buttonRight+0, BitPos(TRIS_buttonRight+0) 
 ;button.c,49 :: 		TRIS_buttonOK = 1;
 	BSF         TRIS_buttonOK+0, BitPos(TRIS_buttonOK+0) 
 ;button.c,50 :: 		}
@@ -145,8 +145,8 @@ L_end_resetTMR0:
 _backBtnPress:
 
 ;button.c,70 :: 		bool backBtnPress(void){
-;button.c,71 :: 		if(buttonVoltar)
-	BTFSS       buttonVoltar+0, BitPos(buttonVoltar+0) 
+;button.c,71 :: 		if(flagsButton.flagBack)
+	BTFSS       _flagsButton+0, 0 
 	GOTO        L_backBtnPress26
 ;button.c,72 :: 		return true;
 	MOVLW       1
@@ -163,8 +163,8 @@ L_end_backBtnPress:
 _okBtnPress:
 
 ;button.c,76 :: 		bool okBtnPress(void){
-;button.c,77 :: 		if(buttonOK)
-	BTFSS       buttonOK+0, BitPos(buttonOK+0) 
+;button.c,77 :: 		if(flagsButton.flagOk)
+	BTFSS       _flagsButton+0, 3 
 	GOTO        L_okBtnPress27
 ;button.c,78 :: 		return true;
 	MOVLW       1
@@ -191,7 +191,7 @@ L_end_cleanBtnOk:
 _cleanBtnBack:
 
 ;button.c,86 :: 		void cleanBtnBack(void){
-;button.c,87 :: 		flagsButton.flagVoltar = 0;
+;button.c,87 :: 		flagsButton.flagBack = 0;
 	BCF         _flagsButton+0, 0 
 ;button.c,88 :: 		}
 L_end_cleanBtnBack:

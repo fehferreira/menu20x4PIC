@@ -8,11 +8,11 @@
 #include "buttonHeader.h"
 
 union flagButton{
-    char flagsJuntas;
+    char allFlags;
     struct{
-        char flagVoltar: 1;
-        char flagEsquerda: 1;
-        char flagDireita: 1;
+        char flagBack: 1;
+        char flagLeft: 1;
+        char flagRight: 1;
         char flagOk: 1;
     };
 }flagsButton;
@@ -20,32 +20,32 @@ union flagButton{
 unsigned short valueButton;
 
 void testButton(void){
-    if(!flagsButton.flagVoltar      && buttonVoltar)   flagsButton.flagVoltar = 1;
-    if(!flagsButton.flagEsquerda    && buttonEsquerda) flagsButton.flagEsquerda = 1;
-    if(!flagsButton.flagDireita     && buttonDireita)  flagsButton.flagDireita = 1;
-    if(!flagsButton.flagOk          && buttonOK)       flagsButton.flagOk = 1;
+    if(!flagsButton.flagBack    && buttonBack)  flagsButton.flagBack = 1;
+    if(!flagsButton.flagLeft    && buttonLeft)  flagsButton.flagLeft = 1;
+    if(!flagsButton.flagRight   && buttonRight) flagsButton.flagRight = 1;
+    if(!flagsButton.flagOk      && buttonOK)    flagsButton.flagOk = 1;
     
-    if(flagsButton.flagVoltar      && !buttonVoltar){
-        flagsButton.flagVoltar = 0;
+    if(flagsButton.flagBack    && !buttonBack){
+        flagsButton.flagBack = 0;
     }
     
-    if(flagsButton.flagEsquerda    && !buttonEsquerda){
-        flagsButton.flagEsquerda = 0;
+    if(flagsButton.flagLeft    && !buttonLeft){
+        flagsButton.flagLeft = 0;
     }
     
-    if(flagsButton.flagDireita     && !buttonDireita){
-        flagsButton.flagDireita = 0;
+    if(flagsButton.flagRight   && !buttonRight){
+        flagsButton.flagRight = 0;
     }
     
-    if(flagsButton.flagOk          && !buttonOK){
+    if(flagsButton.flagOk      && !buttonOK){
         flagsButton.flagOk = 0;
     }
 }
 
 void configButton(void){
-    TRIS_buttonVoltar = 1;
-    TRIS_buttonEsquerda = 1;
-    TRIS_buttonDireita = 1;
+    TRIS_buttonBack = 1;
+    TRIS_buttonLeft = 1;
+    TRIS_buttonRight = 1;
     TRIS_buttonOK = 1;
 }
 
@@ -68,13 +68,13 @@ void resetTMR0(void){
 }
 
 bool backBtnPress(void){
-    if(buttonVoltar)
+    if(flagsButton.flagBack)
         return true;
     return false;
 }
 
 bool okBtnPress(void){
-    if(buttonOK)
+    if(flagsButton.flagOk)
         return true;
     return false;
 }
@@ -84,7 +84,7 @@ void cleanBtnOk(void){
 }
 
 void cleanBtnBack(void){
-    flagsButton.flagVoltar = 0;
+    flagsButton.flagBack = 0;
 }
 
 unsigned short getSelectValue(void){
