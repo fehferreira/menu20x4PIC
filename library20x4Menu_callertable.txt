@@ -11,30 +11,12 @@ main
 		configButton
 	mainMenu
 		setValueMenuButton
-		backBtnPress
-		okBtnPress
-		getSelectValue
-		showMainMenu
-			flagCleanLCDisSet
-			cleanLCD
-				cleanFlagCleanLCD
-				Lcd_Cmd
-					Delay_1us
-					Delay_5500us
-					Delay_50us
-			Lcd_Out
-				Lcd_Cmd
-					Delay_1us
-					Delay_5500us
-					Delay_50us
-				Lcd_Chr_CP
-					Lcd_Cmd
-						Delay_1us
-						Delay_5500us
-						Delay_50us
-			Mul_16X16_U
-		cleanBtnOk
-		cleanBtnBack
+		genericMenuCondition
+			backBtnPress
+			okBtnPress
+			getSelectValue
+			____DoIFC
+			cleanBtnBack
 interrupt_low
 	resetTMR0
 	testButton

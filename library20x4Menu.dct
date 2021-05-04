@@ -514,6 +514,7 @@ fsr2l
 fsr2ptr
 gcen
 gcen_bit
+genericmenucondition
 get_fosc_khz
 getselectvalue
 gie

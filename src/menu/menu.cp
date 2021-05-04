@@ -37,21 +37,19 @@ void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 void mainMenu(void);
 void showMainMenu(unsigned short valueReceive);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/menu.c"
-void mainMenu(void){
- setValueMenuButton(0,0,2,1);
+void genericMenuCondition(void (*pointerDisplayFunction)(unsigned short valueReceive)){
  while(!backBtnPress()){
  while(!backBtnPress() || !okBtnPress())
- showMainMenu(getSelectValue());
+ pointerDisplayFunction(getSelectValue());
 
  if(okBtnPress()){
- cleanBtnOk();
- switch(getSelectValue()){
- case 0:
- break;
- case 1:
- break;
- }
+ return;
  }
  }
  cleanBtnBack();
+}
+
+void mainMenu(void){
+ setValueMenuButton(0,0,2,1);
+ genericMenuCondition(&showMainMenu);
 }

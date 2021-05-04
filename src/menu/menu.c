@@ -7,13 +7,13 @@
 
 #include "menuHeader.h"
 
-void genericMenuCondition(){
+void genericMenuCondition(void (*pointerDisplayFunction)(unsigned short valueReceive)){
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
-            xxx(getSelectValue());
+            pointerDisplayFunction(getSelectValue());
 
         if(okBtnPress()){
-            return xxx[getSelectValue()];
+            return;
         }
     }
     cleanBtnBack();
@@ -21,5 +21,5 @@ void genericMenuCondition(){
 
 void mainMenu(void){
     setValueMenuButton(0,0,2,1);
-    genericMenuCondition(...);
+    genericMenuCondition(&showMainMenu);
 }
