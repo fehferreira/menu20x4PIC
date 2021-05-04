@@ -7,21 +7,19 @@
 
 #include "menuHeader.h"
 
-void mainMenu(void){
-    setValueMenuButton(0,0,2,1);
+void genericMenuCondition(){
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
-            showMainMenu(getSelectValue());
+            xxx(getSelectValue());
 
         if(okBtnPress()){
-            cleanBtnOk();
-            switch(getSelectValue()){
-                case 0:
-                    break;
-                case 1:
-                    break;
-            }
+            return xxx[getSelectValue()];
         }
     }
     cleanBtnBack();
+}
+
+void mainMenu(void){
+    setValueMenuButton(0,0,2,1);
+    genericMenuCondition(...);
 }
