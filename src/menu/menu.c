@@ -7,10 +7,13 @@
 
 #include "menuHeader.h"
 
-void genericMenuCondition(void (*pointerDisplayFunction)(unsigned short valueReceive)){
+typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
+typedef void (*pointerFunction)(void);
+
+void genericMenuCondition(pointerDisplayFunction functionDisplay){
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
-            pointerDisplayFunction(getSelectValue());
+            functionDisplay(getSelectValue());
 
         if(okBtnPress()){
             return;

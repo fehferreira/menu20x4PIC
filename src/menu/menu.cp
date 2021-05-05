@@ -1,12 +1,12 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/menu.c"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/menu.c"
+#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
+#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
 #line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
 
 
 
  typedef char _Bool;
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -33,14 +33,16 @@ void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/menuheader.h"
+#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
 void mainMenu(void);
 void showMainMenu(unsigned short valueReceive);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/menu.c"
-void genericMenuCondition(void (*pointerDisplayFunction)(unsigned short valueReceive)){
+#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/menu.c"
+typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
+
+void genericMenuCondition(pointerDisplayFunction functionDisplay){
  while(!backBtnPress()){
  while(!backBtnPress() || !okBtnPress())
- pointerDisplayFunction(getSelectValue());
+ functionDisplay(getSelectValue());
 
  if(okBtnPress()){
  return;
