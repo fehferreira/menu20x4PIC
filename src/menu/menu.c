@@ -10,19 +10,20 @@
 typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
 typedef void (*pointerFunction)(void);
 
-void genericMenuCondition(pointerDisplayFunction functionDisplay){
+pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
     while(!backBtnPress()){
         while(!backBtnPress() || !okBtnPress())
             functionDisplay(getSelectValue());
 
         if(okBtnPress()){
-            return;
+            return functions[getSelectValue()];
         }
     }
     cleanBtnBack();
 }
 
 void mainMenu(void){
+    pointerFunction functions[] = {};
     setValueMenuButton(0,0,2,1);
-    genericMenuCondition(&showMainMenu);
+    genericMenuCondition(&showMainMenu, functions);
 }

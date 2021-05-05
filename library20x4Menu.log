@@ -5,14 +5,7 @@ diagnostics: 60	123	Compiled Successfully	main.c
 diagnostics: 0	122	Compilation Started	stdbool.h
 diagnostics: 137	123	Compiled Successfully	button.c
 diagnostics: 0	122	Compilation Started	stdbool.h
-diagnostics: 27	123	Compiled Successfully	menu.c
+error: 26	315	Invalid expression	menu.c
 diagnostics: 0	122	Compilation Started	stdbool.h
 diagnostics: 23	123	Compiled Successfully	viewMenu.c
-diagnostics: 0	127	All files Compiled in 734 ms	 
-hint: 0	1144	Used RAM (bytes): 93 (5%)  Free RAM (bytes): 1934 (95%)	Used RAM (bytes): 93 (5%)  Free RAM (bytes): 1934 (95%)
-hint: 0	1144	Used ROM (bytes): 1235 (4%)  Free ROM (bytes): 31533 (96%)	Used ROM (bytes): 1235 (4%)  Free ROM (bytes): 31533 (96%)
-diagnostics: 0	125	Project Linked Successfully	library20x4Menu.mcppi
-hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	128	Linked in 953 ms	 
-diagnostics: 0	129	Project 'library20x4Menu.mcppi' completed: 1875 ms	 
-diagnostics: 0	103	Finished successfully: 05 mai 2021, 16:52:15	library20x4Menu.mcppi
+error: 0	102	Finished (with errors): 05 mai 2021, 16:54:56	library20x4Menu.mcppi
