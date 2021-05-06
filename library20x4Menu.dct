@@ -750,6 +750,9 @@ lvv3_bit
 main
 mainmenu
 maxvalue
+menu1
+menu2
+menu3
 minvalue
 montadoras
 mul_16x16_s

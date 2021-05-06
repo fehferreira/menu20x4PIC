@@ -28,7 +28,10 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 File0=.\src\menu\menu.c
-Count=1
+File1=.\src\menu\button.c
+File2=.\src\menu\menuHeader.h
+File3=.\src\menu\viewMenu.c
+Count=4
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]

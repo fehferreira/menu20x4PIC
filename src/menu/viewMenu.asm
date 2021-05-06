@@ -13,19 +13,19 @@ L_end_cleanLCD:
 	RETURN      0
 ; end of _cleanLCD
 
-_showMainMenu:
+_menu1:
 
-;viewMenu.c,17 :: 		void showMainMenu(unsigned short valueReceive){
+;viewMenu.c,17 :: 		void menu1(void){
 ;viewMenu.c,18 :: 		if(flagCleanLCDisSet())
 	CALL        _flagCleanLCDisSet+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
-	GOTO        L_showMainMenu0
+	GOTO        L_menu10
 ;viewMenu.c,19 :: 		cleanLCD();
 	CALL        _cleanLCD+0, 0
-L_showMainMenu0:
-;viewMenu.c,21 :: 		Lcd_Out(1,1,"->MONTADORAS");
-	MOVLW       1
+L_menu10:
+;viewMenu.c,20 :: 		Lcd_Out(3,1,"menu1");
+	MOVLW       3
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
 	MOVWF       FARG_Lcd_Out_column+0 
@@ -34,7 +34,85 @@ L_showMainMenu0:
 	MOVLW       hi_addr(?lstr1_viewMenu+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;viewMenu.c,22 :: 		Lcd_Out(2,2,montadoras[valueReceive]);
+;viewMenu.c,21 :: 		}
+L_end_menu1:
+	RETURN      0
+; end of _menu1
+
+_menu2:
+
+;viewMenu.c,23 :: 		void menu2(void){
+;viewMenu.c,24 :: 		if(flagCleanLCDisSet())
+	CALL        _flagCleanLCDisSet+0, 0
+	MOVF        R0, 1 
+	BTFSC       STATUS+0, 2 
+	GOTO        L_menu21
+;viewMenu.c,25 :: 		cleanLCD();
+	CALL        _cleanLCD+0, 0
+L_menu21:
+;viewMenu.c,26 :: 		Lcd_Out(3,1,"menu2");
+	MOVLW       3
+	MOVWF       FARG_Lcd_Out_row+0 
+	MOVLW       1
+	MOVWF       FARG_Lcd_Out_column+0 
+	MOVLW       ?lstr2_viewMenu+0
+	MOVWF       FARG_Lcd_Out_text+0 
+	MOVLW       hi_addr(?lstr2_viewMenu+0)
+	MOVWF       FARG_Lcd_Out_text+1 
+	CALL        _Lcd_Out+0, 0
+;viewMenu.c,27 :: 		}
+L_end_menu2:
+	RETURN      0
+; end of _menu2
+
+_menu3:
+
+;viewMenu.c,29 :: 		void menu3(void){
+;viewMenu.c,30 :: 		if(flagCleanLCDisSet())
+	CALL        _flagCleanLCDisSet+0, 0
+	MOVF        R0, 1 
+	BTFSC       STATUS+0, 2 
+	GOTO        L_menu32
+;viewMenu.c,31 :: 		cleanLCD();
+	CALL        _cleanLCD+0, 0
+L_menu32:
+;viewMenu.c,32 :: 		Lcd_Out(3,1,"menu3");
+	MOVLW       3
+	MOVWF       FARG_Lcd_Out_row+0 
+	MOVLW       1
+	MOVWF       FARG_Lcd_Out_column+0 
+	MOVLW       ?lstr3_viewMenu+0
+	MOVWF       FARG_Lcd_Out_text+0 
+	MOVLW       hi_addr(?lstr3_viewMenu+0)
+	MOVWF       FARG_Lcd_Out_text+1 
+	CALL        _Lcd_Out+0, 0
+;viewMenu.c,33 :: 		}
+L_end_menu3:
+	RETURN      0
+; end of _menu3
+
+_showMainMenu:
+
+;viewMenu.c,35 :: 		void showMainMenu(unsigned short valueReceive){
+;viewMenu.c,36 :: 		if(flagCleanLCDisSet())
+	CALL        _flagCleanLCDisSet+0, 0
+	MOVF        R0, 1 
+	BTFSC       STATUS+0, 2 
+	GOTO        L_showMainMenu3
+;viewMenu.c,37 :: 		cleanLCD();
+	CALL        _cleanLCD+0, 0
+L_showMainMenu3:
+;viewMenu.c,39 :: 		Lcd_Out(1,1,"->MONTADORAS");
+	MOVLW       1
+	MOVWF       FARG_Lcd_Out_row+0 
+	MOVLW       1
+	MOVWF       FARG_Lcd_Out_column+0 
+	MOVLW       ?lstr4_viewMenu+0
+	MOVWF       FARG_Lcd_Out_text+0 
+	MOVLW       hi_addr(?lstr4_viewMenu+0)
+	MOVWF       FARG_Lcd_Out_text+1 
+	CALL        _Lcd_Out+0, 0
+;viewMenu.c,40 :: 		Lcd_Out(2,2,montadoras[valueReceive]);
 	MOVLW       2
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       2
@@ -55,7 +133,7 @@ L_showMainMenu0:
 	ADDWFC      R1, 0 
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;viewMenu.c,23 :: 		}
+;viewMenu.c,41 :: 		}
 L_end_showMainMenu:
 	RETURN      0
 ; end of _showMainMenu

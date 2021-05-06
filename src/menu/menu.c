@@ -23,7 +23,7 @@ pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, poi
 }
 
 void mainMenu(void){
-    pointerFunction functions[] = {};
+    pointerFunction functions[] = {&menu1, &menu2, &menu3};
     setValueMenuButton(0,0,2,1);
     genericMenuCondition(&showMainMenu, functions);
 }

@@ -64,6 +64,10 @@ unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
 void mainMenu(void);
+
+void menu1(void);
+void menu2(void);
+void menu3(void);
 void showMainMenu(unsigned short valueReceive);
 #line 11 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/main.c"
 sbit LCD_RS at RD0_bit;

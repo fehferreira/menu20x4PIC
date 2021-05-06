@@ -8,4 +8,8 @@
 #include "buttonHeader.h"
 
 void mainMenu(void);
+
+void menu1(void);
+void menu2(void);
+void menu3(void);
 void showMainMenu(unsigned short valueReceive);

@@ -14,6 +14,24 @@ void cleanLCD(void){
     Lcd_Cmd(_LCD_CLEAR);
 }
 
+void menu1(void){
+    if(flagCleanLCDisSet())
+        cleanLCD();
+    Lcd_Out(3,1,"menu1");
+}
+
+void menu2(void){
+    if(flagCleanLCDisSet())
+        cleanLCD();
+    Lcd_Out(3,1,"menu2");
+}
+
+void menu3(void){
+    if(flagCleanLCDisSet())
+        cleanLCD();
+    Lcd_Out(3,1,"menu3");
+}
+
 void showMainMenu(unsigned short valueReceive){
     if(flagCleanLCDisSet())
         cleanLCD();
