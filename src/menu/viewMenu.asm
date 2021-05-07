@@ -13,18 +13,18 @@ L_end_cleanLCD:
 	RETURN      0
 ; end of _cleanLCD
 
-_menu1:
+_showMenu1:
 
-;viewMenu.c,17 :: 		void menu1(void){
+;viewMenu.c,17 :: 		void showMenu1(void){
 ;viewMenu.c,18 :: 		if(flagCleanLCDisSet())
 	CALL        _flagCleanLCDisSet+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
-	GOTO        L_menu10
+	GOTO        L_showMenu10
 ;viewMenu.c,19 :: 		cleanLCD();
 	CALL        _cleanLCD+0, 0
-L_menu10:
-;viewMenu.c,20 :: 		Lcd_Out(3,1,"menu1");
+L_showMenu10:
+;viewMenu.c,20 :: 		Lcd_Out(3,1,"->Menu1");
 	MOVLW       3
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
@@ -35,22 +35,22 @@ L_menu10:
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
 ;viewMenu.c,21 :: 		}
-L_end_menu1:
+L_end_showMenu1:
 	RETURN      0
-; end of _menu1
+; end of _showMenu1
 
-_menu2:
+_showMenu2:
 
-;viewMenu.c,23 :: 		void menu2(void){
+;viewMenu.c,23 :: 		void showMenu2(void){
 ;viewMenu.c,24 :: 		if(flagCleanLCDisSet())
 	CALL        _flagCleanLCDisSet+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
-	GOTO        L_menu21
+	GOTO        L_showMenu21
 ;viewMenu.c,25 :: 		cleanLCD();
 	CALL        _cleanLCD+0, 0
-L_menu21:
-;viewMenu.c,26 :: 		Lcd_Out(3,1,"menu2");
+L_showMenu21:
+;viewMenu.c,26 :: 		Lcd_Out(3,1,"->Menu2");
 	MOVLW       3
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
@@ -61,22 +61,22 @@ L_menu21:
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
 ;viewMenu.c,27 :: 		}
-L_end_menu2:
+L_end_showMenu2:
 	RETURN      0
-; end of _menu2
+; end of _showMenu2
 
-_menu3:
+_showMenu3:
 
-;viewMenu.c,29 :: 		void menu3(void){
+;viewMenu.c,29 :: 		void showMenu3(void){
 ;viewMenu.c,30 :: 		if(flagCleanLCDisSet())
 	CALL        _flagCleanLCDisSet+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
-	GOTO        L_menu32
+	GOTO        L_showMenu32
 ;viewMenu.c,31 :: 		cleanLCD();
 	CALL        _cleanLCD+0, 0
-L_menu32:
-;viewMenu.c,32 :: 		Lcd_Out(3,1,"menu3");
+L_showMenu32:
+;viewMenu.c,32 :: 		Lcd_Out(3,1,"->Menu3");
 	MOVLW       3
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
@@ -87,9 +87,9 @@ L_menu32:
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
 ;viewMenu.c,33 :: 		}
-L_end_menu3:
+L_end_showMenu3:
 	RETURN      0
-; end of _menu3
+; end of _showMenu3
 
 _showMainMenu:
 

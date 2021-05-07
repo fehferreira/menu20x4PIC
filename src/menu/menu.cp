@@ -37,9 +37,9 @@ void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
 void mainMenu(void);
 
-void menu1(void);
-void menu2(void);
-void menu3(void);
+void showMenu1(void);
+void showMenu2(void);
+void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/menu.c"
 typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
@@ -58,7 +58,7 @@ pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, poi
 }
 
 void mainMenu(void){
- pointerFunction functions[] = {&menu1, &menu2, &menu3};
+ pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
  pointerFunction returnedFunction;
 
  setValueMenuButton(0,0,2,1);

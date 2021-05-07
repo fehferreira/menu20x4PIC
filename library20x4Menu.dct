@@ -750,9 +750,6 @@ lvv3_bit
 main
 mainmenu
 maxvalue
-menu1
-menu2
-menu3
 minvalue
 montadoras
 mul_16x16_s
@@ -1096,6 +1093,9 @@ setiov3224
 setjmp
 setvaluemenubutton
 showmainmenu
+showmenu1
+showmenu2
+showmenu3
 smp
 smp_bit
 sofie

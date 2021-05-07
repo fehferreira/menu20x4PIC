@@ -14,22 +14,22 @@ void cleanLCD(void){
     Lcd_Cmd(_LCD_CLEAR);
 }
 
-void menu1(void){
+void showMenu1(void){
     if(flagCleanLCDisSet())
         cleanLCD();
-    Lcd_Out(3,1,"menu1");
+    Lcd_Out(3,1,"->Menu1");
 }
 
-void menu2(void){
+void showMenu2(void){
     if(flagCleanLCDisSet())
         cleanLCD();
-    Lcd_Out(3,1,"menu2");
+    Lcd_Out(3,1,"->Menu2");
 }
 
-void menu3(void){
+void showMenu3(void){
     if(flagCleanLCDisSet())
         cleanLCD();
-    Lcd_Out(3,1,"menu3");
+    Lcd_Out(3,1,"->Menu3");
 }
 
 void showMainMenu(unsigned short valueReceive){

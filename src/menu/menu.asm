@@ -78,26 +78,26 @@ L_end_genericMenuCondition:
 _mainMenu:
 
 ;menu.c,25 :: 		void mainMenu(void){
-;menu.c,26 :: 		pointerFunction functions[] = {&menu1, &menu2, &menu3};
-	MOVLW       _menu1+0
+;menu.c,26 :: 		pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
+	MOVLW       _showMenu1+0
 	MOVWF       mainMenu_functions_L0+0 
-	MOVLW       hi_addr(_menu1+0)
+	MOVLW       hi_addr(_showMenu1+0)
 	MOVWF       mainMenu_functions_L0+1 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+2 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+3 
-	MOVLW       _menu2+0
+	MOVLW       _showMenu2+0
 	MOVWF       mainMenu_functions_L0+4 
-	MOVLW       hi_addr(_menu2+0)
+	MOVLW       hi_addr(_showMenu2+0)
 	MOVWF       mainMenu_functions_L0+5 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+6 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+7 
-	MOVLW       _menu3+0
+	MOVLW       _showMenu3+0
 	MOVWF       mainMenu_functions_L0+8 
-	MOVLW       hi_addr(_menu3+0)
+	MOVLW       hi_addr(_showMenu3+0)
 	MOVWF       mainMenu_functions_L0+9 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+10 

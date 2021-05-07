@@ -37,9 +37,9 @@ void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
 void mainMenu(void);
 
-void menu1(void);
-void menu2(void);
-void menu3(void);
+void showMenu1(void);
+void showMenu2(void);
+void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
 #line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/viewMenu.c"
 char montadoras[3][20] = {"->FIAT","->FORD","->GM"};
@@ -49,22 +49,22 @@ void cleanLCD(void){
  Lcd_Cmd(_LCD_CLEAR);
 }
 
-void menu1(void){
+void showMenu1(void){
  if(flagCleanLCDisSet())
  cleanLCD();
- Lcd_Out(3,1,"menu1");
+ Lcd_Out(3,1,"->Menu1");
 }
 
-void menu2(void){
+void showMenu2(void){
  if(flagCleanLCDisSet())
  cleanLCD();
- Lcd_Out(3,1,"menu2");
+ Lcd_Out(3,1,"->Menu2");
 }
 
-void menu3(void){
+void showMenu3(void){
  if(flagCleanLCDisSet())
  cleanLCD();
- Lcd_Out(3,1,"menu3");
+ Lcd_Out(3,1,"->Menu3");
 }
 
 void showMainMenu(unsigned short valueReceive){

@@ -9,7 +9,7 @@
 
 void mainMenu(void);
 
-void menu1(void);
-void menu2(void);
-void menu3(void);
+void showMenu1(void);
+void showMenu2(void);
+void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
