@@ -49,8 +49,8 @@ pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, poi
  while(!backBtnPress()){
  while(!okOrBackBtnPress())
  functionDisplay(getSelectValue());
- Lcd_Out(3,1,"TEST");
  if(okBtnPress()){
+ cleanBtnOk();
  return functions[getSelectValue()];
  }
  }
@@ -59,6 +59,9 @@ pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, poi
 
 void mainMenu(void){
  pointerFunction functions[] = {&menu1, &menu2, &menu3};
+ pointerFunction returnedFunction;
+
  setValueMenuButton(0,0,2,1);
- genericMenuCondition(&showMainMenu, functions);
+ returnedFunction = genericMenuCondition(&showMainMenu, functions);
+ returnedFunction();
 }
