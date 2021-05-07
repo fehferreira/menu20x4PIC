@@ -20,7 +20,8 @@ File0=.\src\main.c
 File1=.\src\menu\button.c
 File2=.\src\menu\menu.c
 File3=.\src\menu\viewMenu.c
-Count=4
+File4=.\src\menu\dataType.c
+Count=5
 [BINARIES]
 Count=0
 [IMAGES]
@@ -28,7 +29,9 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 File0=.\src\menu\menu.c
-Count=1
+File1=.\src\menu\dataType_header.h
+File2=.\src\menu\dataType.c
+Count=3
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -44,7 +47,8 @@ Count=0
 [HEADERS]
 File0=.\src\menu\buttonHeader.h
 File1=.\src\menu\menuHeader.h
-Count=2
+File2=.\src\menu\dataType_header.h
+Count=3
 [PLDS]
 Count=0
 [Useses]

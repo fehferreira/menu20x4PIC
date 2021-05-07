@@ -1,20 +1,20 @@
 
 _genericMenuCondition:
 
-;menu.c,18 :: 		pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
-;menu.c,19 :: 		while(!backBtnPress()){
+;menu.c,11 :: 		pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
+;menu.c,12 :: 		while(!backBtnPress()){
 L_genericMenuCondition0:
 	CALL        _backBtnPress+0, 0
 	MOVF        R0, 1 
 	BTFSS       STATUS+0, 2 
 	GOTO        L_genericMenuCondition1
-;menu.c,20 :: 		while(!okOrBackBtnPress())
+;menu.c,13 :: 		while(!okOrBackBtnPress())
 L_genericMenuCondition2:
 	CALL        _okOrBackBtnPress+0, 0
 	MOVF        R0, 1 
 	BTFSS       STATUS+0, 2 
 	GOTO        L_genericMenuCondition3
-;menu.c,21 :: 		receiveFunctions.functionDisplay(getSelectValue());
+;menu.c,14 :: 		receiveFunctions.functionDisplay(getSelectValue());
 	CALL        _getSelectValue+0, 0
 	MOVF        FARG_genericMenuCondition_receiveFunctions+4, 0 
 	MOVWF       FSR1+0 
@@ -29,14 +29,14 @@ L_genericMenuCondition2:
 	CALL        _____DoIFC+0, 0
 	GOTO        L_genericMenuCondition2
 L_genericMenuCondition3:
-;menu.c,22 :: 		if(okBtnPress()){
+;menu.c,15 :: 		if(okBtnPress()){
 	CALL        _okBtnPress+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
 	GOTO        L_genericMenuCondition4
-;menu.c,23 :: 		cleanBtnOk();
+;menu.c,16 :: 		cleanBtnOk();
 	CALL        _cleanBtnOk+0, 0
-;menu.c,24 :: 		return receiveFunctions.functionsSelect[getSelectValue()];
+;menu.c,17 :: 		return receiveFunctions.functionsSelect[getSelectValue()];
 	CALL        _getSelectValue+0, 0
 	MOVF        R0, 0 
 	MOVWF       R1 
@@ -63,52 +63,22 @@ L_genericMenuCondition3:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       R3 
 	GOTO        L_end_genericMenuCondition
-;menu.c,25 :: 		}
+;menu.c,18 :: 		}
 L_genericMenuCondition4:
-;menu.c,26 :: 		}
+;menu.c,19 :: 		}
 	GOTO        L_genericMenuCondition0
 L_genericMenuCondition1:
-;menu.c,27 :: 		cleanBtnBack();
+;menu.c,20 :: 		cleanBtnBack();
 	CALL        _cleanBtnBack+0, 0
-;menu.c,28 :: 		}
+;menu.c,21 :: 		}
 L_end_genericMenuCondition:
 	RETURN      0
 ; end of _genericMenuCondition
 
-_addFunctions:
-
-;menu.c,30 :: 		void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
-;menu.c,31 :: 		dataMenu->functionsSelect = functions;
-	MOVFF       FARG_addFunctions_dataMenu+0, FSR1L+0
-	MOVFF       FARG_addFunctions_dataMenu+1, FSR1H+0
-	MOVF        FARG_addFunctions_functions+0, 0 
-	MOVWF       POSTINC1+0 
-	MOVF        FARG_addFunctions_functions+1, 0 
-	MOVWF       POSTINC1+0 
-;menu.c,32 :: 		dataMenu->functionDisplay = displayFunction;
-	MOVLW       2
-	ADDWF       FARG_addFunctions_dataMenu+0, 0 
-	MOVWF       FSR1L+0 
-	MOVLW       0
-	ADDWFC      FARG_addFunctions_dataMenu+1, 0 
-	MOVWF       FSR1L+1 
-	MOVF        FARG_addFunctions_displayFunction+0, 0 
-	MOVWF       POSTINC1+0 
-	MOVF        FARG_addFunctions_displayFunction+1, 0 
-	MOVWF       POSTINC1+0 
-	MOVF        FARG_addFunctions_displayFunction+2, 0 
-	MOVWF       POSTINC1+0 
-	MOVF        FARG_addFunctions_displayFunction+3, 0 
-	MOVWF       POSTINC1+0 
-;menu.c,33 :: 		}
-L_end_addFunctions:
-	RETURN      0
-; end of _addFunctions
-
 _mainMenu:
 
-;menu.c,35 :: 		void mainMenu(void){
-;menu.c,37 :: 		pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
+;menu.c,23 :: 		void mainMenu(void){
+;menu.c,25 :: 		pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
 	MOVLW       _showMenu1+0
 	MOVWF       mainMenu_functions_L0+0 
 	MOVLW       hi_addr(_showMenu1+0)
@@ -133,7 +103,7 @@ _mainMenu:
 	MOVWF       mainMenu_functions_L0+10 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+11 
-;menu.c,40 :: 		addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
+;menu.c,28 :: 		addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
 	MOVLW       mainMenu_mainMenuFunctions_L0+0
 	MOVWF       FARG_addFunctions_dataMenu+0 
 	MOVLW       hi_addr(mainMenu_mainMenuFunctions_L0+0)
@@ -151,7 +121,7 @@ _mainMenu:
 	MOVLW       hi_addr(FARG_showMainMenu_valueReceive+0)
 	MOVWF       FARG_addFunctions_displayFunction+3 
 	CALL        _addFunctions+0, 0
-;menu.c,42 :: 		setValueMenuButton(0,0,2,1);
+;menu.c,30 :: 		setValueMenuButton(0,0,2,1);
 	CLRF        FARG_setValueMenuButton_initVar+0 
 	CLRF        FARG_setValueMenuButton_minVar+0 
 	MOVLW       2
@@ -159,7 +129,7 @@ _mainMenu:
 	MOVLW       1
 	MOVWF       FARG_setValueMenuButton_incVar+0 
 	CALL        _setValueMenuButton+0, 0
-;menu.c,43 :: 		returnedFunction = genericMenuCondition(mainMenuFunctions);
+;menu.c,31 :: 		returnedFunction = genericMenuCondition(mainMenuFunctions);
 	MOVLW       6
 	MOVWF       R0 
 	MOVLW       FARG_genericMenuCondition_receiveFunctions+0
@@ -185,13 +155,13 @@ L_mainMenu5:
 	MOVWF       mainMenu_returnedFunction_L0+2 
 	MOVF        R3, 0 
 	MOVWF       mainMenu_returnedFunction_L0+3 
-;menu.c,44 :: 		returnedFunction();
+;menu.c,32 :: 		returnedFunction();
 	MOVF        mainMenu_returnedFunction_L0+0, 0 
 	MOVWF       R0 
 	MOVF        mainMenu_returnedFunction_L0+1, 0 
 	MOVWF       R1 
 	CALL        _____DoIFC+0, 0
-;menu.c,45 :: 		}
+;menu.c,33 :: 		}
 L_end_mainMenu:
 	RETURN      0
 ; end of _mainMenu

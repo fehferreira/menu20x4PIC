@@ -6,14 +6,7 @@
 */
 
 #include "menuHeader.h"
-
-typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
-typedef void (*pointerFunction)(void);
-
-typedef struct{
-    pointerFunction *functionsSelect;
-    pointerDisplayFunction functionDisplay;
-}MenuFunctions;
+#include "dataType_header.h"
 
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
     while(!backBtnPress()){
@@ -25,11 +18,6 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
         }
     }
     cleanBtnBack();
-}
-
-void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
-    dataMenu->functionsSelect = functions;
-    dataMenu->functionDisplay = displayFunction;
 }
 
 void mainMenu(void){

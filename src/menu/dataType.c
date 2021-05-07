@@ -5,7 +5,7 @@
 *   MENU DATATYPE FILE
 */
 
-#include "dataType_header.h
+#include "dataType_header.h"
 
 void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
     dataMenu->functionsSelect = functions;
