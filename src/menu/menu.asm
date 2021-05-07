@@ -1,7 +1,7 @@
 
 _genericMenuCondition:
 
-;menu.c,18 :: 		pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
+;menu.c,18 :: 		pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
 ;menu.c,19 :: 		while(!backBtnPress()){
 L_genericMenuCondition0:
 	CALL        _backBtnPress+0, 0
@@ -14,17 +14,17 @@ L_genericMenuCondition2:
 	MOVF        R0, 1 
 	BTFSS       STATUS+0, 2 
 	GOTO        L_genericMenuCondition3
-;menu.c,21 :: 		functionDisplay(getSelectValue());
+;menu.c,21 :: 		receiveFunctions.functionDisplay(getSelectValue());
 	CALL        _getSelectValue+0, 0
-	MOVF        FARG_genericMenuCondition_functionDisplay+2, 0 
+	MOVF        FARG_genericMenuCondition_receiveFunctions+4, 0 
 	MOVWF       FSR1+0 
-	MOVF        FARG_genericMenuCondition_functionDisplay+3, 0 
+	MOVF        FARG_genericMenuCondition_receiveFunctions+5, 0 
 	MOVWF       FSR1+1 
 	MOVF        R0, 0 
 	MOVWF       POSTINC1+0 
-	MOVF        FARG_genericMenuCondition_functionDisplay+0, 0 
+	MOVF        FARG_genericMenuCondition_receiveFunctions+2, 0 
 	MOVWF       R0 
-	MOVF        FARG_genericMenuCondition_functionDisplay+1, 0 
+	MOVF        FARG_genericMenuCondition_receiveFunctions+3, 0 
 	MOVWF       R1 
 	CALL        _____DoIFC+0, 0
 	GOTO        L_genericMenuCondition2
@@ -36,7 +36,7 @@ L_genericMenuCondition3:
 	GOTO        L_genericMenuCondition4
 ;menu.c,23 :: 		cleanBtnOk();
 	CALL        _cleanBtnOk+0, 0
-;menu.c,24 :: 		return functions[getSelectValue()];
+;menu.c,24 :: 		return receiveFunctions.functionsSelect[getSelectValue()];
 	CALL        _getSelectValue+0, 0
 	MOVF        R0, 0 
 	MOVWF       R1 
@@ -49,10 +49,10 @@ L_genericMenuCondition3:
 	BCF         R1, 0 
 	RLCF        R2, 1 
 	MOVF        R1, 0 
-	ADDWF       FARG_genericMenuCondition_functions+0, 0 
+	ADDWF       FARG_genericMenuCondition_receiveFunctions+0, 0 
 	MOVWF       FSR0L+0 
 	MOVF        R2, 0 
-	ADDWFC      FARG_genericMenuCondition_functions+1, 0 
+	ADDWFC      FARG_genericMenuCondition_receiveFunctions+1, 0 
 	MOVWF       FSR0L+1 
 	MOVF        POSTINC0+0, 0 
 	MOVWF       R0 
@@ -103,7 +103,21 @@ _mainMenu:
 	MOVWF       mainMenu_functions_L0+10 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+11 
-;menu.c,37 :: 		setValueMenuButton(0,0,2,1);
+;menu.c,35 :: 		mainMenuFunctions.functionsSelect = functions;
+	MOVLW       mainMenu_functions_L0+0
+	MOVWF       mainMenu_mainMenuFunctions_L0+0 
+	MOVLW       hi_addr(mainMenu_functions_L0+0)
+	MOVWF       mainMenu_mainMenuFunctions_L0+1 
+;menu.c,36 :: 		mainMenuFunctions.functionDisplay = &showMainMenu;
+	MOVLW       _showMainMenu+0
+	MOVWF       mainMenu_mainMenuFunctions_L0+2 
+	MOVLW       hi_addr(_showMainMenu+0)
+	MOVWF       mainMenu_mainMenuFunctions_L0+3 
+	MOVLW       FARG_showMainMenu_valueReceive+0
+	MOVWF       mainMenu_mainMenuFunctions_L0+4 
+	MOVLW       hi_addr(FARG_showMainMenu_valueReceive+0)
+	MOVWF       mainMenu_mainMenuFunctions_L0+5 
+;menu.c,38 :: 		setValueMenuButton(0,0,2,1);
 	CLRF        FARG_setValueMenuButton_initVar+0 
 	CLRF        FARG_setValueMenuButton_minVar+0 
 	MOVLW       2
@@ -111,19 +125,23 @@ _mainMenu:
 	MOVLW       1
 	MOVWF       FARG_setValueMenuButton_incVar+0 
 	CALL        _setValueMenuButton+0, 0
-;menu.c,38 :: 		returnedFunction = genericMenuCondition(&showMainMenu, functions);
-	MOVLW       _showMainMenu+0
-	MOVWF       FARG_genericMenuCondition_functionDisplay+0 
-	MOVLW       hi_addr(_showMainMenu+0)
-	MOVWF       FARG_genericMenuCondition_functionDisplay+1 
-	MOVLW       FARG_showMainMenu_valueReceive+0
-	MOVWF       FARG_genericMenuCondition_functionDisplay+2 
-	MOVLW       hi_addr(FARG_showMainMenu_valueReceive+0)
-	MOVWF       FARG_genericMenuCondition_functionDisplay+3 
-	MOVLW       mainMenu_functions_L0+0
-	MOVWF       FARG_genericMenuCondition_functions+0 
-	MOVLW       hi_addr(mainMenu_functions_L0+0)
-	MOVWF       FARG_genericMenuCondition_functions+1 
+;menu.c,39 :: 		returnedFunction = genericMenuCondition(mainMenuFunctions);
+	MOVLW       6
+	MOVWF       R0 
+	MOVLW       FARG_genericMenuCondition_receiveFunctions+0
+	MOVWF       FSR1L+0 
+	MOVLW       hi_addr(FARG_genericMenuCondition_receiveFunctions+0)
+	MOVWF       FSR1L+1 
+	MOVLW       mainMenu_mainMenuFunctions_L0+0
+	MOVWF       FSR0L+0 
+	MOVLW       hi_addr(mainMenu_mainMenuFunctions_L0+0)
+	MOVWF       FSR0L+1 
+L_mainMenu5:
+	MOVF        POSTINC0+0, 0 
+	MOVWF       POSTINC1+0 
+	DECF        R0, 1 
+	BTFSS       STATUS+0, 2 
+	GOTO        L_mainMenu5
 	CALL        _genericMenuCondition+0, 0
 	MOVF        R0, 0 
 	MOVWF       mainMenu_returnedFunction_L0+0 
@@ -133,13 +151,13 @@ _mainMenu:
 	MOVWF       mainMenu_returnedFunction_L0+2 
 	MOVF        R3, 0 
 	MOVWF       mainMenu_returnedFunction_L0+3 
-;menu.c,39 :: 		returnedFunction();
+;menu.c,40 :: 		returnedFunction();
 	MOVF        mainMenu_returnedFunction_L0+0, 0 
 	MOVWF       R0 
 	MOVF        mainMenu_returnedFunction_L0+1, 0 
 	MOVWF       R1 
 	CALL        _____DoIFC+0, 0
-;menu.c,40 :: 		}
+;menu.c,41 :: 		}
 L_end_mainMenu:
 	RETURN      0
 ; end of _mainMenu

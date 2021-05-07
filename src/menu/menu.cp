@@ -50,13 +50,13 @@ typedef struct{
  pointerDisplayFunction functionDisplay;
 }MenuFunctions;
 
-pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
+pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  while(!backBtnPress()){
  while(!okOrBackBtnPress())
- functionDisplay(getSelectValue());
+ receiveFunctions.functionDisplay(getSelectValue());
  if(okBtnPress()){
  cleanBtnOk();
- return functions[getSelectValue()];
+ return receiveFunctions.functionsSelect[getSelectValue()];
  }
  }
  cleanBtnBack();
@@ -68,8 +68,9 @@ void mainMenu(void){
  pointerFunction returnedFunction;
 
  mainMenuFunctions.functionsSelect = functions;
+ mainMenuFunctions.functionDisplay = &showMainMenu;
 
  setValueMenuButton(0,0,2,1);
- returnedFunction = genericMenuCondition(&showMainMenu, functions);
+ returnedFunction = genericMenuCondition(mainMenuFunctions);
  returnedFunction();
 }
