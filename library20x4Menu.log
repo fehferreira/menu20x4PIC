@@ -3,16 +3,16 @@ hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]
 diagnostics: 0	122	Compilation Started	stdbool.h
 diagnostics: 60	123	Compiled Successfully	main.c
 diagnostics: 0	122	Compilation Started	stdbool.h
-diagnostics: 137	123	Compiled Successfully	button.c
+diagnostics: 145	123	Compiled Successfully	button.c
 diagnostics: 0	122	Compilation Started	stdbool.h
 diagnostics: 29	123	Compiled Successfully	menu.c
 diagnostics: 0	122	Compilation Started	stdbool.h
 diagnostics: 41	123	Compiled Successfully	viewMenu.c
-diagnostics: 0	127	All files Compiled in 516 ms	 
-hint: 0	1144	Used RAM (bytes): 107 (5%)  Free RAM (bytes): 1920 (95%)	Used RAM (bytes): 107 (5%)  Free RAM (bytes): 1920 (95%)
-hint: 0	1144	Used ROM (bytes): 1341 (4%)  Free ROM (bytes): 31427 (96%)	Used ROM (bytes): 1341 (4%)  Free ROM (bytes): 31427 (96%)
+diagnostics: 0	127	All files Compiled in 562 ms	 
+hint: 0	1144	Used RAM (bytes): 112 (6%)  Free RAM (bytes): 1915 (94%)	Used RAM (bytes): 112 (6%)  Free RAM (bytes): 1915 (94%)
+hint: 0	1144	Used ROM (bytes): 1386 (4%)  Free ROM (bytes): 31382 (96%)	Used ROM (bytes): 1386 (4%)  Free ROM (bytes): 31382 (96%)
 diagnostics: 0	125	Project Linked Successfully	library20x4Menu.mcppi
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	128	Linked in 968 ms	 
-diagnostics: 0	129	Project 'library20x4Menu.mcppi' completed: 1625 ms	 
-diagnostics: 0	103	Finished successfully: 06 mai 2021, 15:07:54	library20x4Menu.mcppi
+diagnostics: 0	128	Linked in 1094 ms	 
+diagnostics: 0	129	Project 'library20x4Menu.mcppi' completed: 1813 ms	 
+diagnostics: 0	103	Finished successfully: 07 mai 2021, 10:19:10	library20x4Menu.mcppi

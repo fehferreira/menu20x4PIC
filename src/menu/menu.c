@@ -12,9 +12,8 @@ typedef void (*pointerFunction)(void);
 
 pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
     while(!backBtnPress()){
-        while(!backBtnPress() || !okBtnPress())
+        while(!okOrBackBtnPress())
             functionDisplay(getSelectValue());
-
         if(okBtnPress()){
             return functions[getSelectValue()];
         }

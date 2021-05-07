@@ -8,18 +8,12 @@ L_genericMenuCondition0:
 	MOVF        R0, 1 
 	BTFSS       STATUS+0, 2 
 	GOTO        L_genericMenuCondition1
-;menu.c,15 :: 		while(!backBtnPress() || !okBtnPress())
+;menu.c,15 :: 		while(!okOrBackBtnPress())
 L_genericMenuCondition2:
-	CALL        _backBtnPress+0, 0
+	CALL        _okOrBackBtnPress+0, 0
 	MOVF        R0, 1 
-	BTFSC       STATUS+0, 2 
-	GOTO        L__genericMenuCondition7
-	CALL        _okBtnPress+0, 0
-	MOVF        R0, 1 
-	BTFSC       STATUS+0, 2 
-	GOTO        L__genericMenuCondition7
+	BTFSS       STATUS+0, 2 
 	GOTO        L_genericMenuCondition3
-L__genericMenuCondition7:
 ;menu.c,16 :: 		functionDisplay(getSelectValue());
 	CALL        _getSelectValue+0, 0
 	MOVF        FARG_genericMenuCondition_functionDisplay+2, 0 
@@ -35,11 +29,21 @@ L__genericMenuCondition7:
 	CALL        _____DoIFC+0, 0
 	GOTO        L_genericMenuCondition2
 L_genericMenuCondition3:
+;menu.c,17 :: 		Lcd_Out(3,1,"TEST");
+	MOVLW       3
+	MOVWF       FARG_Lcd_Out_row+0 
+	MOVLW       1
+	MOVWF       FARG_Lcd_Out_column+0 
+	MOVLW       ?lstr1_menu+0
+	MOVWF       FARG_Lcd_Out_text+0 
+	MOVLW       hi_addr(?lstr1_menu+0)
+	MOVWF       FARG_Lcd_Out_text+1 
+	CALL        _Lcd_Out+0, 0
 ;menu.c,18 :: 		if(okBtnPress()){
 	CALL        _okBtnPress+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
-	GOTO        L_genericMenuCondition6
+	GOTO        L_genericMenuCondition4
 ;menu.c,19 :: 		return functions[getSelectValue()];
 	CALL        _getSelectValue+0, 0
 	MOVF        R0, 0 
@@ -68,7 +72,7 @@ L_genericMenuCondition3:
 	MOVWF       R3 
 	GOTO        L_end_genericMenuCondition
 ;menu.c,20 :: 		}
-L_genericMenuCondition6:
+L_genericMenuCondition4:
 ;menu.c,21 :: 		}
 	GOTO        L_genericMenuCondition0
 L_genericMenuCondition1:

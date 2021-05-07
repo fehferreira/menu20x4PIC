@@ -23,6 +23,7 @@ void resetTMR0(void);
 
  _Bool  backBtnPress(void);
  _Bool  okBtnPress(void);
+ _Bool  okOrBackBtnPress(void);
  _Bool  flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
@@ -125,6 +126,14 @@ void resetTMR0(void){
 
  _Bool  okBtnPress(void){
  if(flagMenuOk)
+ return  1 ;
+ return  0 ;
+}
+
+ _Bool  okOrBackBtnPress(void){
+ if(okBtnPress())
+ return  1 ;
+ if(backBtnPress())
  return  1 ;
  return  0 ;
 }

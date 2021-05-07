@@ -24,6 +24,7 @@ void resetTMR0(void);
 
 bool backBtnPress(void);
 bool okBtnPress(void);
+bool okOrBackBtnPress(void);
 bool flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);

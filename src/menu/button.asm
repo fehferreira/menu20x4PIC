@@ -7,7 +7,7 @@ _testButton:
 	GOTO        L_testButton2
 	BTFSS       buttonBack+0, BitPos(buttonBack+0) 
 	GOTO        L_testButton2
-L__testButton45:
+L__testButton47:
 	BSF         _flagsButton+0, 0 
 L_testButton2:
 ;button.c,31 :: 		if(!flagsButton.flagLeft    && buttonLeft)  flagsButton.flagLeft = 1;
@@ -15,7 +15,7 @@ L_testButton2:
 	GOTO        L_testButton5
 	BTFSS       buttonLeft+0, BitPos(buttonLeft+0) 
 	GOTO        L_testButton5
-L__testButton44:
+L__testButton46:
 	BSF         _flagsButton+0, 1 
 L_testButton5:
 ;button.c,32 :: 		if(!flagsButton.flagRight   && buttonRight) flagsButton.flagRight = 1;
@@ -23,7 +23,7 @@ L_testButton5:
 	GOTO        L_testButton8
 	BTFSS       buttonRight+0, BitPos(buttonRight+0) 
 	GOTO        L_testButton8
-L__testButton43:
+L__testButton45:
 	BSF         _flagsButton+0, 2 
 L_testButton8:
 ;button.c,33 :: 		if(!flagsButton.flagOk      && buttonOK)    flagsButton.flagOk = 1;
@@ -31,7 +31,7 @@ L_testButton8:
 	GOTO        L_testButton11
 	BTFSS       buttonOK+0, BitPos(buttonOK+0) 
 	GOTO        L_testButton11
-L__testButton42:
+L__testButton44:
 	BSF         _flagsButton+0, 3 
 L_testButton11:
 ;button.c,35 :: 		if(flagsButton.flagBack    && !buttonBack){
@@ -39,7 +39,7 @@ L_testButton11:
 	GOTO        L_testButton14
 	BTFSC       buttonBack+0, BitPos(buttonBack+0) 
 	GOTO        L_testButton14
-L__testButton41:
+L__testButton43:
 ;button.c,36 :: 		flagsButton.flagBack = 0;
 	BCF         _flagsButton+0, 0 
 ;button.c,37 :: 		flagMenuBack = 1;
@@ -53,7 +53,7 @@ L_testButton14:
 	GOTO        L_testButton17
 	BTFSC       buttonLeft+0, BitPos(buttonLeft+0) 
 	GOTO        L_testButton17
-L__testButton40:
+L__testButton42:
 ;button.c,42 :: 		flagsButton.flagLeft = 0;
 	BCF         _flagsButton+0, 1 
 ;button.c,43 :: 		if(valueButton > minValue && valueButton <= maxValue)
@@ -65,7 +65,7 @@ L__testButton40:
 	SUBWF       _maxValue+0, 0 
 	BTFSS       STATUS+0, 0 
 	GOTO        L_testButton20
-L__testButton39:
+L__testButton41:
 ;button.c,44 :: 		valueButton -= incrementValue;
 	MOVF        _incrementValue+0, 0 
 	SUBWF       _valueButton+0, 1 
@@ -79,7 +79,7 @@ L_testButton17:
 	GOTO        L_testButton23
 	BTFSC       buttonRight+0, BitPos(buttonRight+0) 
 	GOTO        L_testButton23
-L__testButton38:
+L__testButton40:
 ;button.c,49 :: 		flagsButton.flagRight = 0;
 	BCF         _flagsButton+0, 2 
 ;button.c,50 :: 		if(valueButton < maxValue && valueButton >= minValue)
@@ -91,7 +91,7 @@ L__testButton38:
 	SUBWF       _valueButton+0, 0 
 	BTFSS       STATUS+0, 0 
 	GOTO        L_testButton26
-L__testButton37:
+L__testButton39:
 ;button.c,51 :: 		valueButton += incrementValue;
 	MOVF        _incrementValue+0, 0 
 	ADDWF       _valueButton+0, 1 
@@ -105,7 +105,7 @@ L_testButton23:
 	GOTO        L_testButton29
 	BTFSC       buttonOK+0, BitPos(buttonOK+0) 
 	GOTO        L_testButton29
-L__testButton36:
+L__testButton38:
 ;button.c,56 :: 		flagsButton.flagOk = 0;
 	BCF         _flagsButton+0, 3 
 ;button.c,57 :: 		flagMenuOk = 1;
@@ -231,91 +231,121 @@ L_end_okBtnPress:
 	RETURN      0
 ; end of _okBtnPress
 
+_okOrBackBtnPress:
+
+;button.c,106 :: 		bool okOrBackBtnPress(void){
+;button.c,107 :: 		if(okBtnPress())
+	CALL        _okBtnPress+0, 0
+	MOVF        R0, 1 
+	BTFSC       STATUS+0, 2 
+	GOTO        L_okOrBackBtnPress35
+;button.c,108 :: 		return true;
+	MOVLW       1
+	MOVWF       R0 
+	GOTO        L_end_okOrBackBtnPress
+L_okOrBackBtnPress35:
+;button.c,109 :: 		if(backBtnPress())
+	CALL        _backBtnPress+0, 0
+	MOVF        R0, 1 
+	BTFSC       STATUS+0, 2 
+	GOTO        L_okOrBackBtnPress36
+;button.c,110 :: 		return true;
+	MOVLW       1
+	MOVWF       R0 
+	GOTO        L_end_okOrBackBtnPress
+L_okOrBackBtnPress36:
+;button.c,111 :: 		return false;
+	CLRF        R0 
+;button.c,112 :: 		}
+L_end_okOrBackBtnPress:
+	RETURN      0
+; end of _okOrBackBtnPress
+
 _cleanBtnOk:
 
-;button.c,106 :: 		void cleanBtnOk(void){
-;button.c,107 :: 		flagMenuOk = 0;
+;button.c,114 :: 		void cleanBtnOk(void){
+;button.c,115 :: 		flagMenuOk = 0;
 	BCF         _flagMenuOk+0, BitPos(_flagMenuOk+0) 
-;button.c,108 :: 		}
+;button.c,116 :: 		}
 L_end_cleanBtnOk:
 	RETURN      0
 ; end of _cleanBtnOk
 
 _cleanBtnBack:
 
-;button.c,110 :: 		void cleanBtnBack(void){
-;button.c,111 :: 		flagMenuBack = 0;
+;button.c,118 :: 		void cleanBtnBack(void){
+;button.c,119 :: 		flagMenuBack = 0;
 	BCF         _flagMenuBack+0, BitPos(_flagMenuBack+0) 
-;button.c,112 :: 		}
+;button.c,120 :: 		}
 L_end_cleanBtnBack:
 	RETURN      0
 ; end of _cleanBtnBack
 
 _getSelectValue:
 
-;button.c,114 :: 		unsigned short getSelectValue(void){
-;button.c,115 :: 		return valueButton;
+;button.c,122 :: 		unsigned short getSelectValue(void){
+;button.c,123 :: 		return valueButton;
 	MOVF        _valueButton+0, 0 
 	MOVWF       R0 
-;button.c,116 :: 		}
+;button.c,124 :: 		}
 L_end_getSelectValue:
 	RETURN      0
 ; end of _getSelectValue
 
 _setValueMenuButton:
 
-;button.c,118 :: 		void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
-;button.c,119 :: 		valueButton = initVar;
+;button.c,126 :: 		void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+;button.c,127 :: 		valueButton = initVar;
 	MOVF        FARG_setValueMenuButton_initVar+0, 0 
 	MOVWF       _valueButton+0 
-;button.c,120 :: 		minValue = minVar;
+;button.c,128 :: 		minValue = minVar;
 	MOVF        FARG_setValueMenuButton_minVar+0, 0 
 	MOVWF       _minValue+0 
-;button.c,121 :: 		maxValue = maxVar;
+;button.c,129 :: 		maxValue = maxVar;
 	MOVF        FARG_setValueMenuButton_maxVar+0, 0 
 	MOVWF       _maxValue+0 
-;button.c,122 :: 		incrementValue = incVar;
+;button.c,130 :: 		incrementValue = incVar;
 	MOVF        FARG_setValueMenuButton_incVar+0, 0 
 	MOVWF       _incrementValue+0 
-;button.c,123 :: 		}
+;button.c,131 :: 		}
 L_end_setValueMenuButton:
 	RETURN      0
 ; end of _setValueMenuButton
 
 _flagCleanLCDisSet:
 
-;button.c,125 :: 		bool flagCleanLCDisSet(void){
-;button.c,126 :: 		if(flagCleanLCD)
+;button.c,133 :: 		bool flagCleanLCDisSet(void){
+;button.c,134 :: 		if(flagCleanLCD)
 	BTFSS       _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
-	GOTO        L_flagCleanLCDisSet35
-;button.c,127 :: 		return true;
+	GOTO        L_flagCleanLCDisSet37
+;button.c,135 :: 		return true;
 	MOVLW       1
 	MOVWF       R0 
 	GOTO        L_end_flagCleanLCDisSet
-L_flagCleanLCDisSet35:
-;button.c,128 :: 		return false;
+L_flagCleanLCDisSet37:
+;button.c,136 :: 		return false;
 	CLRF        R0 
-;button.c,129 :: 		}
+;button.c,137 :: 		}
 L_end_flagCleanLCDisSet:
 	RETURN      0
 ; end of _flagCleanLCDisSet
 
 _setFlagCleanLCD:
 
-;button.c,131 :: 		void setFlagCleanLCD(void){
-;button.c,132 :: 		flagCleanLCD = 1;
+;button.c,139 :: 		void setFlagCleanLCD(void){
+;button.c,140 :: 		flagCleanLCD = 1;
 	BSF         _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
-;button.c,133 :: 		}
+;button.c,141 :: 		}
 L_end_setFlagCleanLCD:
 	RETURN      0
 ; end of _setFlagCleanLCD
 
 _cleanFlagCleanLCD:
 
-;button.c,135 :: 		void cleanFlagCleanLCD(void){
-;button.c,136 :: 		flagCleanLCD = 0;
+;button.c,143 :: 		void cleanFlagCleanLCD(void){
+;button.c,144 :: 		flagCleanLCD = 0;
 	BCF         _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
-;button.c,137 :: 		}
+;button.c,145 :: 		}
 L_end_cleanFlagCleanLCD:
 	RETURN      0
 ; end of _cleanFlagCleanLCD

@@ -24,6 +24,7 @@ void resetTMR0(void);
 
  _Bool  backBtnPress(void);
  _Bool  okBtnPress(void);
+ _Bool  okOrBackBtnPress(void);
  _Bool  flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
@@ -46,9 +47,9 @@ typedef void (*pointerFunction)(void);
 
 pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
  while(!backBtnPress()){
- while(!backBtnPress() || !okBtnPress())
+ while(!okOrBackBtnPress())
  functionDisplay(getSelectValue());
-
+ Lcd_Out(3,1,"TEST");
  if(okBtnPress()){
  return functions[getSelectValue()];
  }

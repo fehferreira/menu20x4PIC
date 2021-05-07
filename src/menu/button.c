@@ -103,6 +103,14 @@ bool okBtnPress(void){
     return false;
 }
 
+bool okOrBackBtnPress(void){
+    if(okBtnPress())
+        return true;
+    if(backBtnPress())
+        return true;
+    return false;
+}
+
 void cleanBtnOk(void){
     flagMenuOk = 0;
 }
@@ -135,5 +143,3 @@ void setFlagCleanLCD(void){
 void cleanFlagCleanLCD(void){
     flagCleanLCD = 0;
 }
-
-
