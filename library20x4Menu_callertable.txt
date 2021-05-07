@@ -10,6 +10,7 @@ main
 		configTMR0
 		configButton
 	mainMenu
+		addFunctions
 		setValueMenuButton
 		genericMenuCondition
 			backBtnPress
