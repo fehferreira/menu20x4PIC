@@ -62,13 +62,17 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  cleanBtnBack();
 }
 
+void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
+ dataMenu->functionsSelect = functions;
+ dataMenu->functionDisplay = displayFunction;
+}
+
 void mainMenu(void){
  MenuFunctions mainMenuFunctions;
  pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
  pointerFunction returnedFunction;
 
- mainMenuFunctions.functionsSelect = functions;
- mainMenuFunctions.functionDisplay = &showMainMenu;
+ addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
 
  setValueMenuButton(0,0,2,1);
  returnedFunction = genericMenuCondition(mainMenuFunctions);

@@ -75,10 +75,40 @@ L_end_genericMenuCondition:
 	RETURN      0
 ; end of _genericMenuCondition
 
+_addFunctions:
+
+;menu.c,30 :: 		void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
+;menu.c,31 :: 		dataMenu->functionsSelect = functions;
+	MOVFF       FARG_addFunctions_dataMenu+0, FSR1L+0
+	MOVFF       FARG_addFunctions_dataMenu+1, FSR1H+0
+	MOVF        FARG_addFunctions_functions+0, 0 
+	MOVWF       POSTINC1+0 
+	MOVF        FARG_addFunctions_functions+1, 0 
+	MOVWF       POSTINC1+0 
+;menu.c,32 :: 		dataMenu->functionDisplay = displayFunction;
+	MOVLW       2
+	ADDWF       FARG_addFunctions_dataMenu+0, 0 
+	MOVWF       FSR1L+0 
+	MOVLW       0
+	ADDWFC      FARG_addFunctions_dataMenu+1, 0 
+	MOVWF       FSR1L+1 
+	MOVF        FARG_addFunctions_displayFunction+0, 0 
+	MOVWF       POSTINC1+0 
+	MOVF        FARG_addFunctions_displayFunction+1, 0 
+	MOVWF       POSTINC1+0 
+	MOVF        FARG_addFunctions_displayFunction+2, 0 
+	MOVWF       POSTINC1+0 
+	MOVF        FARG_addFunctions_displayFunction+3, 0 
+	MOVWF       POSTINC1+0 
+;menu.c,33 :: 		}
+L_end_addFunctions:
+	RETURN      0
+; end of _addFunctions
+
 _mainMenu:
 
-;menu.c,30 :: 		void mainMenu(void){
-;menu.c,32 :: 		pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
+;menu.c,35 :: 		void mainMenu(void){
+;menu.c,37 :: 		pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
 	MOVLW       _showMenu1+0
 	MOVWF       mainMenu_functions_L0+0 
 	MOVLW       hi_addr(_showMenu1+0)
@@ -103,21 +133,25 @@ _mainMenu:
 	MOVWF       mainMenu_functions_L0+10 
 	MOVLW       0
 	MOVWF       mainMenu_functions_L0+11 
-;menu.c,35 :: 		mainMenuFunctions.functionsSelect = functions;
+;menu.c,40 :: 		addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
+	MOVLW       mainMenu_mainMenuFunctions_L0+0
+	MOVWF       FARG_addFunctions_dataMenu+0 
+	MOVLW       hi_addr(mainMenu_mainMenuFunctions_L0+0)
+	MOVWF       FARG_addFunctions_dataMenu+1 
 	MOVLW       mainMenu_functions_L0+0
-	MOVWF       mainMenu_mainMenuFunctions_L0+0 
+	MOVWF       FARG_addFunctions_functions+0 
 	MOVLW       hi_addr(mainMenu_functions_L0+0)
-	MOVWF       mainMenu_mainMenuFunctions_L0+1 
-;menu.c,36 :: 		mainMenuFunctions.functionDisplay = &showMainMenu;
+	MOVWF       FARG_addFunctions_functions+1 
 	MOVLW       _showMainMenu+0
-	MOVWF       mainMenu_mainMenuFunctions_L0+2 
+	MOVWF       FARG_addFunctions_displayFunction+0 
 	MOVLW       hi_addr(_showMainMenu+0)
-	MOVWF       mainMenu_mainMenuFunctions_L0+3 
+	MOVWF       FARG_addFunctions_displayFunction+1 
 	MOVLW       FARG_showMainMenu_valueReceive+0
-	MOVWF       mainMenu_mainMenuFunctions_L0+4 
+	MOVWF       FARG_addFunctions_displayFunction+2 
 	MOVLW       hi_addr(FARG_showMainMenu_valueReceive+0)
-	MOVWF       mainMenu_mainMenuFunctions_L0+5 
-;menu.c,38 :: 		setValueMenuButton(0,0,2,1);
+	MOVWF       FARG_addFunctions_displayFunction+3 
+	CALL        _addFunctions+0, 0
+;menu.c,42 :: 		setValueMenuButton(0,0,2,1);
 	CLRF        FARG_setValueMenuButton_initVar+0 
 	CLRF        FARG_setValueMenuButton_minVar+0 
 	MOVLW       2
@@ -125,7 +159,7 @@ _mainMenu:
 	MOVLW       1
 	MOVWF       FARG_setValueMenuButton_incVar+0 
 	CALL        _setValueMenuButton+0, 0
-;menu.c,39 :: 		returnedFunction = genericMenuCondition(mainMenuFunctions);
+;menu.c,43 :: 		returnedFunction = genericMenuCondition(mainMenuFunctions);
 	MOVLW       6
 	MOVWF       R0 
 	MOVLW       FARG_genericMenuCondition_receiveFunctions+0
@@ -151,13 +185,13 @@ L_mainMenu5:
 	MOVWF       mainMenu_returnedFunction_L0+2 
 	MOVF        R3, 0 
 	MOVWF       mainMenu_returnedFunction_L0+3 
-;menu.c,40 :: 		returnedFunction();
+;menu.c,44 :: 		returnedFunction();
 	MOVF        mainMenu_returnedFunction_L0+0, 0 
 	MOVWF       R0 
 	MOVF        mainMenu_returnedFunction_L0+1, 0 
 	MOVWF       R1 
 	CALL        _____DoIFC+0, 0
-;menu.c,41 :: 		}
+;menu.c,45 :: 		}
 L_end_mainMenu:
 	RETURN      0
 ; end of _mainMenu

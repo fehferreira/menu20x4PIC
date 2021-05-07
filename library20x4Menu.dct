@@ -70,6 +70,7 @@ adcs2_bit
 add_32x32_fp
 adden
 adden_bit
+addfunctions
 addr0
 addr0_bit
 addr0_uaddr_bit
