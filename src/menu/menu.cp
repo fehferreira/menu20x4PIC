@@ -45,6 +45,11 @@ void showMainMenu(unsigned short valueReceive);
 typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
 typedef void (*pointerFunction)(void);
 
+typedef struct{
+ pointerFunction *functionsSelect;
+ pointerDisplayFunction functionDisplay;
+}MenuFunctions;
+
 pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, pointerFunction functions[]){
  while(!backBtnPress()){
  while(!okOrBackBtnPress())
@@ -58,8 +63,11 @@ pointerFunction genericMenuCondition(pointerDisplayFunction functionDisplay, poi
 }
 
 void mainMenu(void){
+ MenuFunctions mainMenuFunctions;
  pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
  pointerFunction returnedFunction;
+
+ mainMenuFunctions.functionsSelect = functions;
 
  setValueMenuButton(0,0,2,1);
  returnedFunction = genericMenuCondition(&showMainMenu, functions);

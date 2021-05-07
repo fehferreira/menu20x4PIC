@@ -63,10 +63,7 @@ IVT_BASE=00000008
 1=Sources
 2=src
 4=menu
-8=Header Files
-9=src
-10=menu
-Count=7
+Count=4
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries
