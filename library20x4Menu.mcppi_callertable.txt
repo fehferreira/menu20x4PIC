@@ -1,0 +1,30 @@
+main
+	InitializeSystem
+		Lcd_Init
+			Delay_5500us
+			Delay_1us
+		Lcd_Cmd
+			Delay_1us
+			Delay_5500us
+			Delay_50us
+		configTMR0
+		configButton
+	mainMenu
+		addFunctions
+		setValueMenuButton
+		genericMenuCondition
+			backBtnPress
+			okOrBackBtnPress
+				okBtnPress
+				backBtnPress
+			getSelectValue
+			____DoIFC
+			okBtnPress
+			cleanBtnOk
+			insertStatusMenuValue
+			cleanBtnBack
+		____DoIFC
+interrupt_low
+	resetTMR0
+	testButton
+		setFlagCleanLCD

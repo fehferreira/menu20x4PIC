@@ -6,10 +6,10 @@
 */
 
 #include "menuHeader.h"
-#include "dataType_header.h"
+#include "dataTypeHeader.h"
 
-unsigned short statusMenuValue[5],
-               actualPosition;
+unsigned short statusMenuValue[5];
+unsigned short actualPosition = 0;
 
 unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
     if(chooseAction){
@@ -20,7 +20,7 @@ unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueRece
     if(actualPosition > 0){
         actualPosition--;
         actualPosition = statusMenuValue[actualPosition];
-        return;
+        return 0;
     }
     return 0;
 }
@@ -32,10 +32,11 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
         if(okBtnPress()){
             unsigned short valueReceive = getSelectValue();
             cleanBtnOk();
-            insertStatusMenuValue(0, valueReceive);
+            insertStatusMenuValue(1, valueReceive);
             return receiveFunctions.functionsSelect[valueReceive];
         }
     }
+    insertStatusMenuValue(0,0);
     cleanBtnBack();
 }
 

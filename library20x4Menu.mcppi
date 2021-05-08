@@ -30,7 +30,8 @@ File0=.\src\main.c
 File1=.\src\menu\button.c
 File2=.\src\menu\menu.c
 File3=.\src\menu\viewMenu.c
-Count=4
+File4=.\src\menu\dataType.c
+Count=5
 [BINARIES]
 Count=0
 [IMAGES]
@@ -55,7 +56,8 @@ Count=0
 [HEADERS]
 File0=.\src\menu\buttonHeader.h
 File1=.\src\menu\menuHeader.h
-Count=2
+File2=.\src\menu\dataTypeHeader.h
+Count=3
 [PLDS]
 Count=0
 [Useses]
@@ -67,9 +69,9 @@ Count=2
 1=Sources
 2=src
 4=menu
-8=Header Files
-9=src
-10=menu
+9=Header Files
+10=src
+11=menu
 Count=7
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries

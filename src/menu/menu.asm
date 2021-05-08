@@ -51,7 +51,8 @@ L_insertStatusMenuValue0:
 	INCF        FSR0H, 1 
 	MOVF        POSTINC0+0, 0 
 	MOVWF       _actualPosition+0 
-;menu.c,23 :: 		return;
+;menu.c,23 :: 		return 0;
+	CLRF        R0 
 	GOTO        L_end_insertStatusMenuValue
 ;menu.c,24 :: 		}
 L_insertStatusMenuValue1:

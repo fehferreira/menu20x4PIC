@@ -41,8 +41,8 @@ void showMenu1(void);
 void showMenu2(void);
 void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
-#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatype_header.h"
-#line 8 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatype_header.h"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatypeheader.h"
+#line 8 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatypeheader.h"
 typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
 typedef void (*pointerFunction)(void);
 
@@ -53,8 +53,8 @@ typedef struct{
 
 void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction);
 #line 11 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/menu.c"
-unsigned short statusMenuValue[5],
- actualPosition;
+unsigned short statusMenuValue[5];
+unsigned short actualPosition = 0;
 
 unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
  if(chooseAction){
@@ -65,7 +65,7 @@ unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueRece
  if(actualPosition > 0){
  actualPosition--;
  actualPosition = statusMenuValue[actualPosition];
- return;
+ return 0;
  }
  return 0;
 }
