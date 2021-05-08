@@ -53,14 +53,29 @@ typedef struct{
 
 void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction);
 #line 11 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/menu.c"
-unsigned short statusMenuValue[];
+unsigned short statusMenuValue[5],
+ actualPosition;
+
+unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
+ if(chooseAction){
+ statusMenuValue[actualPosition] = valueReceive;
+ actualPosition++;
+ return statusMenuValue[actualPosition];
+ }
+ if(actualPosition > 0){
+ actualPosition--;
+ actualPosition = statusMenuValue[actualPosition];
+ return;
+ }
+ return 0;
+}
 
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  while(!backBtnPress()){
  while(!okOrBackBtnPress())
  receiveFunctions.functionDisplay(getSelectValue());
  if(okBtnPress()){
- char valueReceive = getSelectValue();
+ unsigned short valueReceive = getSelectValue();
  cleanBtnOk();
  insertStatusMenuValue(0, valueReceive);
  return receiveFunctions.functionsSelect[valueReceive];

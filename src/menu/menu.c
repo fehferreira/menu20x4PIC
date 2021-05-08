@@ -8,7 +8,22 @@
 #include "menuHeader.h"
 #include "dataType_header.h"
 
-unsigned short statusMenuValue[];
+unsigned short statusMenuValue[5],
+               actualPosition;
+
+unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
+    if(chooseAction){
+        statusMenuValue[actualPosition] = valueReceive;
+        actualPosition++;
+        return statusMenuValue[actualPosition];
+    }
+    if(actualPosition > 0){
+        actualPosition--;
+        actualPosition = statusMenuValue[actualPosition];
+        return;
+    }
+    return 0;
+}
 
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
     while(!backBtnPress()){
