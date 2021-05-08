@@ -567,7 +567,6 @@ indf0
 indf1
 indf2
 initializesystem
-insertstatusmenuvalue
 int0
 int0_bit
 int0e
@@ -1094,6 +1093,7 @@ setfov32
 setfun32
 setiov3224
 setjmp
+setvaluebutton
 setvaluemenubutton
 showmainmenu
 showmenu1
@@ -1463,6 +1463,7 @@ uie
 uir
 uoemon
 uoemon_bit
+updatestatusmenuvalue
 upuen
 upuen_bit
 urstie

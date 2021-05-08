@@ -32,7 +32,8 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
 #line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 #line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 #line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
@@ -63,7 +64,8 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 void mainMenu(void);
 

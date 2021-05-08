@@ -33,7 +33,8 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
 #line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 void mainMenu(void);
 
@@ -56,7 +57,7 @@ void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDi
 unsigned short statusMenuValue[5];
 unsigned short actualPosition = 0;
 
-unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
+unsigned short updateStatusMenuValue(char chooseAction, unsigned short valueReceive){
  if(chooseAction){
  statusMenuValue[actualPosition] = valueReceive;
  actualPosition++;
@@ -76,11 +77,12 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  receiveFunctions.functionDisplay(getSelectValue());
  if(okBtnPress()){
  unsigned short valueReceive = getSelectValue();
- cleanBtnOk();
- insertStatusMenuValue(0, valueReceive);
+ cleanBtnOk( );
+ updateStatusMenuValue(1, valueReceive);
  return receiveFunctions.functionsSelect[valueReceive];
  }
  }
+ updateStatusMenuValue(0,0);
  cleanBtnBack();
 }
 
@@ -91,7 +93,7 @@ void mainMenu(void){
 
  addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
 
- setValueMenuButton(0,0,2,1);
+ setValueMenuButton(0,2,1);
  returnedFunction = genericMenuCondition(mainMenuFunctions);
  returnedFunction();
 }

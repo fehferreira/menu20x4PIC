@@ -21,7 +21,7 @@ main
 			____DoIFC
 			okBtnPress
 			cleanBtnOk
-			insertStatusMenuValue
+			updateStatusMenuValue
 			cleanBtnBack
 		____DoIFC
 interrupt_low

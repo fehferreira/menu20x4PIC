@@ -32,7 +32,8 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
 #line 10 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/button.c"
 union flagButton{
  char allFlags;
@@ -150,8 +151,11 @@ unsigned short getSelectValue(void){
  return valueButton;
 }
 
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+void setValueButton(char initVar){
  valueButton = initVar;
+}
+
+void setValueMenuButton(char minVar, char maxVar, char incVar){
  minValue = minVar;
  maxValue = maxVar;
  incrementValue = incVar;

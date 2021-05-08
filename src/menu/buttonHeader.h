@@ -33,4 +33,5 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);

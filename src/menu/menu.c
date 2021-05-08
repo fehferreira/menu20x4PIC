@@ -11,7 +11,7 @@
 unsigned short statusMenuValue[5];
 unsigned short actualPosition = 0;
 
-unsigned short insertStatusMenuValue(char chooseAction, unsigned short valueReceive){
+unsigned short updateStatusMenuValue(char chooseAction, unsigned short valueReceive){
     if(chooseAction){
         statusMenuValue[actualPosition] = valueReceive;
         actualPosition++;
@@ -31,12 +31,12 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
             receiveFunctions.functionDisplay(getSelectValue());
         if(okBtnPress()){
             unsigned short valueReceive = getSelectValue();
-            cleanBtnOk();
-            insertStatusMenuValue(1, valueReceive);
+            cleanBtnOk(    );
+            updateStatusMenuValue(1, valueReceive);
             return receiveFunctions.functionsSelect[valueReceive];
         }
     }
-    insertStatusMenuValue(0,0);
+    updateStatusMenuValue(0,0);
     cleanBtnBack();
 }
 
@@ -47,7 +47,7 @@ void mainMenu(void){
     
     addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
     
-    setValueMenuButton(0,0,2,1);
+    setValueMenuButton(0,2,1);
     returnedFunction = genericMenuCondition(mainMenuFunctions);
     returnedFunction();
 }
