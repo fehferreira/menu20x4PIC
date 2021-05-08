@@ -3,8 +3,8 @@ _addFunctions:
 
 ;dataType.c,10 :: 		void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction){
 ;dataType.c,11 :: 		dataMenu->functionsSelect = functions;
-	MOVFF       FARG_addFunctions_dataMenu+0, FSR1L+0
-	MOVFF       FARG_addFunctions_dataMenu+1, FSR1H+0
+	MOVFF       FARG_addFunctions_dataMenu+0, FSR1
+	MOVFF       FARG_addFunctions_dataMenu+1, FSR1H
 	MOVF        FARG_addFunctions_functions+0, 0 
 	MOVWF       POSTINC1+0 
 	MOVF        FARG_addFunctions_functions+1, 0 
@@ -12,10 +12,10 @@ _addFunctions:
 ;dataType.c,12 :: 		dataMenu->functionDisplay = displayFunction;
 	MOVLW       2
 	ADDWF       FARG_addFunctions_dataMenu+0, 0 
-	MOVWF       FSR1L+0 
+	MOVWF       FSR1 
 	MOVLW       0
 	ADDWFC      FARG_addFunctions_dataMenu+1, 0 
-	MOVWF       FSR1L+1 
+	MOVWF       FSR1H 
 	MOVF        FARG_addFunctions_displayFunction+0, 0 
 	MOVWF       POSTINC1+0 
 	MOVF        FARG_addFunctions_displayFunction+1, 0 

@@ -1,11 +1,11 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/main.c"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
-#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 1 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/main.c"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
 
 
 
  typedef char _Bool;
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -32,11 +32,12 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
-#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -63,15 +64,16 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 void mainMenu(void);
 
 void showMenu1(void);
 void showMenu2(void);
 void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
-#line 11 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/main.c"
+#line 11 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/main.c"
 sbit LCD_RS at RD0_bit;
 sbit LCD_EN at RD1_bit;
 sbit LCD_D4 at RD2_bit;

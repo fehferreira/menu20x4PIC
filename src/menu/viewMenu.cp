@@ -1,12 +1,12 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/viewMenu.c"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
-#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 1 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/viewMenu.c"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
 
 
 
  typedef char _Bool;
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -33,15 +33,16 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 void mainMenu(void);
 
 void showMenu1(void);
 void showMenu2(void);
 void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/viewMenu.c"
+#line 10 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/viewMenu.c"
 char montadoras[3][20] = {"->FIAT","->FORD","->GM"};
 
 void cleanLCD(void){

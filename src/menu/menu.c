@@ -6,17 +6,37 @@
 */
 
 #include "menuHeader.h"
-#include "dataType_header.h"
+#include "dataTypeHeader.h"
+
+unsigned short statusMenuValue[5];
+unsigned short actualPosition = 0;
+
+unsigned short updateStatusMenuValue(char chooseAction, unsigned short valueReceive){
+    if(chooseAction){
+        statusMenuValue[actualPosition] = valueReceive;
+        actualPosition++;
+        return statusMenuValue[actualPosition];
+    }
+    if(actualPosition > 0){
+        actualPosition--;
+        actualPosition = statusMenuValue[actualPosition];
+        return 0;
+    }
+    return 0;
+}
 
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
     while(!backBtnPress()){
         while(!okOrBackBtnPress())
             receiveFunctions.functionDisplay(getSelectValue());
         if(okBtnPress()){
+            unsigned short valueReceive = getSelectValue();
             cleanBtnOk();
-            return receiveFunctions.functionsSelect[getSelectValue()];
+            updateStatusMenuValue(1, valueReceive);
+            return receiveFunctions.functionsSelect[valueReceive];
         }
     }
+    setValueButton(updateStatusMenuValue(0,0));
     cleanBtnBack();
 }
 
@@ -27,7 +47,7 @@ void mainMenu(void){
     
     addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
     
-    setValueMenuButton(0,0,2,1);
+    setValueMenuButton(0,2,1);
     returnedFunction = genericMenuCondition(mainMenuFunctions);
     returnedFunction();
 }

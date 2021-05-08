@@ -54,6 +54,7 @@ acqt1
 acqt1_bit
 acqt2
 acqt2_bit
+actualposition
 actvie
 actvie_bit
 actvif
@@ -1092,6 +1093,7 @@ setfov32
 setfun32
 setiov3224
 setjmp
+setvaluebutton
 setvaluemenubutton
 showmainmenu
 showmenu1
@@ -1169,6 +1171,7 @@ stallie_bit
 stallif
 stallif_bit
 status
+statusmenuvalue
 stkful
 stkful_bit
 stkovf
@@ -1460,6 +1463,7 @@ uie
 uir
 uoemon
 uoemon_bit
+updatestatusmenuvalue
 upuen
 upuen_bit
 urstie

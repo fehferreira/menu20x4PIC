@@ -292,60 +292,68 @@ L_end_getSelectValue:
 	RETURN      0
 ; end of _getSelectValue
 
+_setValueButton:
+
+;button.c,126 :: 		void setValueButton(char initVar){
+;button.c,127 :: 		valueButton = initVar;
+	MOVF        FARG_setValueButton_initVar+0, 0 
+	MOVWF       _valueButton+0 
+;button.c,128 :: 		}
+L_end_setValueButton:
+	RETURN      0
+; end of _setValueButton
+
 _setValueMenuButton:
 
-;button.c,126 :: 		void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
-;button.c,127 :: 		valueButton = initVar;
-	MOVF        FARG_setValueMenuButton_initVar+0, 0 
-	MOVWF       _valueButton+0 
-;button.c,128 :: 		minValue = minVar;
+;button.c,130 :: 		void setValueMenuButton(char minVar, char maxVar, char incVar){
+;button.c,131 :: 		minValue = minVar;
 	MOVF        FARG_setValueMenuButton_minVar+0, 0 
 	MOVWF       _minValue+0 
-;button.c,129 :: 		maxValue = maxVar;
+;button.c,132 :: 		maxValue = maxVar;
 	MOVF        FARG_setValueMenuButton_maxVar+0, 0 
 	MOVWF       _maxValue+0 
-;button.c,130 :: 		incrementValue = incVar;
+;button.c,133 :: 		incrementValue = incVar;
 	MOVF        FARG_setValueMenuButton_incVar+0, 0 
 	MOVWF       _incrementValue+0 
-;button.c,131 :: 		}
+;button.c,134 :: 		}
 L_end_setValueMenuButton:
 	RETURN      0
 ; end of _setValueMenuButton
 
 _flagCleanLCDisSet:
 
-;button.c,133 :: 		bool flagCleanLCDisSet(void){
-;button.c,134 :: 		if(flagCleanLCD)
+;button.c,136 :: 		bool flagCleanLCDisSet(void){
+;button.c,137 :: 		if(flagCleanLCD)
 	BTFSS       _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
 	GOTO        L_flagCleanLCDisSet37
-;button.c,135 :: 		return true;
+;button.c,138 :: 		return true;
 	MOVLW       1
 	MOVWF       R0 
 	GOTO        L_end_flagCleanLCDisSet
 L_flagCleanLCDisSet37:
-;button.c,136 :: 		return false;
+;button.c,139 :: 		return false;
 	CLRF        R0 
-;button.c,137 :: 		}
+;button.c,140 :: 		}
 L_end_flagCleanLCDisSet:
 	RETURN      0
 ; end of _flagCleanLCDisSet
 
 _setFlagCleanLCD:
 
-;button.c,139 :: 		void setFlagCleanLCD(void){
-;button.c,140 :: 		flagCleanLCD = 1;
+;button.c,142 :: 		void setFlagCleanLCD(void){
+;button.c,143 :: 		flagCleanLCD = 1;
 	BSF         _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
-;button.c,141 :: 		}
+;button.c,144 :: 		}
 L_end_setFlagCleanLCD:
 	RETURN      0
 ; end of _setFlagCleanLCD
 
 _cleanFlagCleanLCD:
 
-;button.c,143 :: 		void cleanFlagCleanLCD(void){
-;button.c,144 :: 		flagCleanLCD = 0;
+;button.c,146 :: 		void cleanFlagCleanLCD(void){
+;button.c,147 :: 		flagCleanLCD = 0;
 	BCF         _flagCleanLCD+0, BitPos(_flagCleanLCD+0) 
-;button.c,145 :: 		}
+;button.c,148 :: 		}
 L_end_cleanFlagCleanLCD:
 	RETURN      0
 ; end of _cleanFlagCleanLCD

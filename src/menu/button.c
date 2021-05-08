@@ -123,8 +123,11 @@ unsigned short getSelectValue(void){
     return valueButton;
 }
 
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+void setValueButton(char initVar){
     valueButton = initVar;
+}
+
+void setValueMenuButton(char minVar, char maxVar, char incVar){
     minValue = minVar;
     maxValue = maxVar;
     incrementValue = incVar;
