@@ -15,13 +15,22 @@ Value=0
 Value=0
 [EEPROM_DEFINITION]
 Value=
+[INTERRUPT_DEFS]
+VECTOR_MODE=0
+IVT_BASE=00000008
+[PROGRAMMER_TYPE]
+Value=mikroE mikroProg
+[CODEGRIP_OPTIONS]
+CODEGRIP_SPEED=4
+CODEGRIP_VERIFY_AFTER=1
+CODEGRIP_SWBP_ENABLED=0
+CODEGRIP_PROGRAMMING_TYPE=
 [FILES]
 File0=.\src\main.c
 File1=.\src\menu\button.c
 File2=.\src\menu\menu.c
 File3=.\src\menu\viewMenu.c
-File4=.\src\menu\dataType.c
-Count=5
+Count=4
 [BINARIES]
 Count=0
 [IMAGES]
@@ -29,9 +38,7 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 File0=.\src\menu\menu.c
-File1=.\src\menu\dataType_header.h
-File2=.\src\menu\dataType.c
-Count=3
+Count=1
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -47,32 +54,24 @@ Count=0
 [HEADERS]
 File0=.\src\menu\buttonHeader.h
 File1=.\src\menu\menuHeader.h
-File2=.\src\menu\dataType_header.h
-Count=3
+Count=2
 [PLDS]
 Count=0
 [Useses]
 File0=Lcd
 File1=Lcd_Constants
 Count=2
-[INTERRUPT_DEFS]
-VECTOR_MODE=0
-IVT_BASE=00000008
 [EXPANDED_NODES]
 0=library20x4Menu.mcppi
 1=Sources
 2=src
 4=menu
-Count=4
+8=Header Files
+9=src
+10=menu
+Count=7
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries
 282=Lcd
 Count=4
-[PROGRAMMER_TYPE]
-Value=mikroE mikroProg
-[CODEGRIP_OPTIONS]
-CODEGRIP_SPEED=4
-CODEGRIP_VERIFY_AFTER=1
-CODEGRIP_SWBP_ENABLED=0
-CODEGRIP_PROGRAMMING_TYPE=

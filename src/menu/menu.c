@@ -8,13 +8,17 @@
 #include "menuHeader.h"
 #include "dataType_header.h"
 
+unsigned short statusMenuValue[];
+
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
     while(!backBtnPress()){
         while(!okOrBackBtnPress())
             receiveFunctions.functionDisplay(getSelectValue());
         if(okBtnPress()){
+            unsigned short valueReceive = getSelectValue();
             cleanBtnOk();
-            return receiveFunctions.functionsSelect[getSelectValue()];
+            insertStatusMenuValue(0, valueReceive);
+            return receiveFunctions.functionsSelect[valueReceive];
         }
     }
     cleanBtnBack();

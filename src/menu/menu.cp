@@ -1,12 +1,12 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/menu.c"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
-#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 1 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/menu.c"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
 
 
 
  typedef char _Bool;
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/buttonheader.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -34,15 +34,15 @@ void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
 void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/menuheader.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/menuheader.h"
 void mainMenu(void);
 
 void showMenu1(void);
 void showMenu2(void);
 void showMenu3(void);
 void showMainMenu(unsigned short valueReceive);
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/datatype_header.h"
-#line 8 "c:/users/felipe-oficina/documents/programação/mikroc/menu20x4library/src/menu/datatype_header.h"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatype_header.h"
+#line 8 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/datatype_header.h"
 typedef void (*pointerDisplayFunction)(unsigned short valueReceive);
 typedef void (*pointerFunction)(void);
 
@@ -52,14 +52,18 @@ typedef struct{
 }MenuFunctions;
 
 void addFunctions(MenuFunctions *dataMenu, pointerFunction *functions, pointerDisplayFunction displayFunction);
-#line 11 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20x4Library/src/menu/menu.c"
+#line 11 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/menu.c"
+unsigned short statusMenuValue[];
+
 pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  while(!backBtnPress()){
  while(!okOrBackBtnPress())
  receiveFunctions.functionDisplay(getSelectValue());
  if(okBtnPress()){
+ char valueReceive = getSelectValue();
  cleanBtnOk();
- return receiveFunctions.functionsSelect[getSelectValue()];
+ insertStatusMenuValue(0, valueReceive);
+ return receiveFunctions.functionsSelect[valueReceive];
  }
  }
  cleanBtnBack();
