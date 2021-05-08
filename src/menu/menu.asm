@@ -102,7 +102,7 @@ L_genericMenuCondition5:
 	CALL        _getSelectValue+0, 0
 	MOVF        R0, 0 
 	MOVWF       genericMenuCondition_valueReceive_L2+0 
-;menu.c,34 :: 		cleanBtnOk(    );
+;menu.c,34 :: 		cleanBtnOk();
 	CALL        _cleanBtnOk+0, 0
 ;menu.c,35 :: 		updateStatusMenuValue(1, valueReceive);
 	MOVLW       1
@@ -141,10 +141,13 @@ L_genericMenuCondition6:
 ;menu.c,38 :: 		}
 	GOTO        L_genericMenuCondition2
 L_genericMenuCondition3:
-;menu.c,39 :: 		updateStatusMenuValue(0,0);
+;menu.c,39 :: 		setValueButton(updateStatusMenuValue(0,0));
 	CLRF        FARG_updateStatusMenuValue_chooseAction+0 
 	CLRF        FARG_updateStatusMenuValue_valueReceive+0 
 	CALL        _updateStatusMenuValue+0, 0
+	MOVF        R0, 0 
+	MOVWF       FARG_setValueButton_initVar+0 
+	CALL        _setValueButton+0, 0
 ;menu.c,40 :: 		cleanBtnBack();
 	CALL        _cleanBtnBack+0, 0
 ;menu.c,41 :: 		}

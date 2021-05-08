@@ -77,12 +77,12 @@ pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
  receiveFunctions.functionDisplay(getSelectValue());
  if(okBtnPress()){
  unsigned short valueReceive = getSelectValue();
- cleanBtnOk( );
+ cleanBtnOk();
  updateStatusMenuValue(1, valueReceive);
  return receiveFunctions.functionsSelect[valueReceive];
  }
  }
- updateStatusMenuValue(0,0);
+ setValueButton(updateStatusMenuValue(0,0));
  cleanBtnBack();
 }
 
