@@ -103,6 +103,14 @@ bool okBtnPress(void){
     return false;
 }
 
+bool okOrBackBtnPress(void){
+    if(okBtnPress())
+        return true;
+    if(backBtnPress())
+        return true;
+    return false;
+}
+
 void cleanBtnOk(void){
     flagMenuOk = 0;
 }
@@ -115,8 +123,11 @@ unsigned short getSelectValue(void){
     return valueButton;
 }
 
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+void setValueButton(char initVar){
     valueButton = initVar;
+}
+
+void setValueMenuButton(char minVar, char maxVar, char incVar){
     minValue = minVar;
     maxValue = maxVar;
     incrementValue = incVar;
@@ -135,5 +146,3 @@ void setFlagCleanLCD(void){
 void cleanFlagCleanLCD(void){
     flagCleanLCD = 0;
 }
-
-

@@ -54,6 +54,7 @@ acqt1
 acqt1_bit
 acqt2
 acqt2_bit
+actualposition
 actvie
 actvie_bit
 actvif
@@ -70,6 +71,7 @@ adcs2_bit
 add_32x32_fp
 adden
 adden_bit
+addfunctions
 addr0
 addr0_bit
 addr0_uaddr_bit
@@ -514,6 +516,7 @@ fsr2l
 fsr2ptr
 gcen
 gcen_bit
+genericmenucondition
 get_fosc_khz
 getselectvalue
 gie
@@ -794,6 +797,7 @@ oerr_bit
 oespp
 oespp_bit
 okbtnpress
+okorbackbtnpress
 osc2
 osc2_bit
 osccon
@@ -1089,8 +1093,12 @@ setfov32
 setfun32
 setiov3224
 setjmp
+setvaluebutton
 setvaluemenubutton
 showmainmenu
+showmenu1
+showmenu2
+showmenu3
 smp
 smp_bit
 sofie
@@ -1163,6 +1171,7 @@ stallie_bit
 stallif
 stallif_bit
 status
+statusmenuvalue
 stkful
 stkful_bit
 stkovf
@@ -1454,6 +1463,7 @@ uie
 uir
 uoemon
 uoemon_bit
+updatestatusmenuvalue
 upuen
 upuen_bit
 urstie

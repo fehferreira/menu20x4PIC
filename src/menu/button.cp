@@ -1,11 +1,11 @@
-#line 1 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
-#line 1 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
-#line 1 "c:/users/felipe-oficina/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+#line 1 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/button.c"
+#line 1 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
+#line 1 "c:/users/felipe-home/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
 
 
 
  typedef char _Bool;
-#line 10 "c:/users/felipe-oficina/documents/programação/mikroc/menu20-4library/src/menu/buttonheader.h"
+#line 10 "c:/users/felipe-home/documents/programas/pic/menu20x4pic/src/menu/buttonheader.h"
 extern sfr sbit buttonBack;
 extern sfr sbit buttonLeft;
 extern sfr sbit buttonRight;
@@ -23,6 +23,7 @@ void resetTMR0(void);
 
  _Bool  backBtnPress(void);
  _Bool  okBtnPress(void);
+ _Bool  okOrBackBtnPress(void);
  _Bool  flagCleanLCDisSet(void);
 
 void cleanBtnOk(void);
@@ -31,8 +32,9 @@ void setFlagCleanLCD(void);
 void cleanFlagCleanLCD(void);
 
 unsigned short getSelectValue(void);
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar);
-#line 10 "C:/Users/Felipe-Oficina/Documents/Programação/MIKROC/menu20-4Library/src/menu/button.c"
+void setValueButton(char initVar);
+void setValueMenuButton(char minVar, char maxVar, char incVar);
+#line 10 "C:/Users/Felipe-HOME/Documents/programas/PIC/menu20x4PIC/src/menu/button.c"
 union flagButton{
  char allFlags;
  struct{
@@ -129,6 +131,14 @@ void resetTMR0(void){
  return  0 ;
 }
 
+ _Bool  okOrBackBtnPress(void){
+ if(okBtnPress())
+ return  1 ;
+ if(backBtnPress())
+ return  1 ;
+ return  0 ;
+}
+
 void cleanBtnOk(void){
  flagMenuOk = 0;
 }
@@ -141,8 +151,11 @@ unsigned short getSelectValue(void){
  return valueButton;
 }
 
-void setValueMenuButton(char initVar, char minVar, char maxVar, char incVar){
+void setValueButton(char initVar){
  valueButton = initVar;
+}
+
+void setValueMenuButton(char minVar, char maxVar, char incVar){
  minValue = minVar;
  maxValue = maxVar;
  incrementValue = incVar;

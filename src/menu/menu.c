@@ -6,22 +6,48 @@
 */
 
 #include "menuHeader.h"
+#include "dataTypeHeader.h"
 
-void mainMenu(void){
-    setValueMenuButton(0,0,2,1);
+unsigned short statusMenuValue[5];
+unsigned short actualPosition = 0;
+
+unsigned short updateStatusMenuValue(char chooseAction, unsigned short valueReceive){
+    if(chooseAction){
+        statusMenuValue[actualPosition] = valueReceive;
+        actualPosition++;
+        return statusMenuValue[actualPosition];
+    }
+    if(actualPosition > 0){
+        actualPosition--;
+        actualPosition = statusMenuValue[actualPosition];
+        return 0;
+    }
+    return 0;
+}
+
+pointerFunction genericMenuCondition(MenuFunctions receiveFunctions){
     while(!backBtnPress()){
-        while(!backBtnPress() || !okBtnPress())
-            showMainMenu(getSelectValue());
-
+        while(!okOrBackBtnPress())
+            receiveFunctions.functionDisplay(getSelectValue());
         if(okBtnPress()){
+            unsigned short valueReceive = getSelectValue();
             cleanBtnOk();
-            switch(getSelectValue()){
-                case 0:
-                    break;
-                case 1:
-                    break;
-            }
+            updateStatusMenuValue(1, valueReceive);
+            return receiveFunctions.functionsSelect[valueReceive];
         }
     }
+    setValueButton(updateStatusMenuValue(0,0));
     cleanBtnBack();
+}
+
+void mainMenu(void){
+    MenuFunctions mainMenuFunctions;
+    pointerFunction functions[] = {&showMenu1, &showMenu2, &showMenu3};
+    pointerFunction returnedFunction;
+    
+    addFunctions(&mainMenuFunctions, &functions, &showMainMenu);
+    
+    setValueMenuButton(0,2,1);
+    returnedFunction = genericMenuCondition(mainMenuFunctions);
+    returnedFunction();
 }
